@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MainSite.Models.Chairman>
+
+@{
+    ViewBag.Title = "系統權限管理";
+}
+
+<h4>權限管理</h4>
+<p>
+    @Html.ActionLink("新增最高權限者", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="w-20">
+                @Html.DisplayNameFor(model => model.ChairmanAccount)
+            </th>
+
+            <th class="w-20">
+                @Html.DisplayNameFor(model => model.Resident.Account)
+            </th>
+            <th class="w-20">
+                @Html.DisplayNameFor(model => model.Resident.Name)
+            </th>
+            <th class="w-20">
+                @Html.DisplayNameFor(model => model.Working)
+            </th>
+            <th class="w-20"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.ChairmanAccount)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Resident.Account)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Resident.Name)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Working)
+                </td>
+                <td class="align-middle">
+                    @Html.ActionLink("修改權限", "Edit", new { id = item.ChairmanAccount }, new { @class = "btn btn-sm btn-outline-dark" })
+                    @*@Html.ActionLink("Details", "Details", new { id = item.ChairmanAccount }) |*@
+                    @*@Html.ActionLink("刪除權限", "Delete", new { id = item.ChairmanAccount }, new { @class = "btn btn-sm btn-outline-dark" })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@{Html.RenderAction("DataJanitor");}
+
+@section partialcss{
+    <style>
+        .w-20{
+            width:20%;
+        }
+    </style>
+    }

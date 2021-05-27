@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "QRcodeProduce";
+}
+
+@*<h2>QRcodeProduce</h2>*@
+
+@*<p>SN = @ViewBag.SN</p>
+<p>Person = @ViewBag.Person</p>
+<p>PickerID = @ViewBag.PickerID</p>*@
+
+@*<div id="qrCodeBox">*@
+    @*<input id="text" class="input-field center" type="text" value="" />*@
+    @*<a id="generate" class="btn">生成</a>*@
+    @*<div id="qrcode"></div>
+</div>*@
+<div id="qrCodeBox">
+    <div id="qrcode"></div>
+    <h3>請對準螢幕</h3>
+</div>
+
+
+@section partialcss{
+    <style>
+        #qrCodeBox {
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+
+       /* #generate {
+            margin: 50px;
+        }*/
+
+        #qrcode {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px double black;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="~/Scripts/JQuery.qrcode.min.js"></script>
+    <script type="text/javascript">
+        var SN = "@ViewBag.SN";
+        var Person = "@ViewBag.Person";
+        var PickerID = "@ViewBag.PickerID";
+
+        /*console.log(text1 + text2 + text3);*/
+
+        //var elText = document.getElementById("text");
+
+        //$('#generate').click(function () {
+
+        //    let url = elText
+        //    makeCode(url);
+        //});
+
+        var actionLink = "";
+
+        let url = `${actionLink}?sn=${SN}&account=${Person}&pickerman=${PickerID}`;
+
+        makeCode(url);
+
+        function makeCode(url) {
+            $('canvas').remove();
+
+            console.log(url)
+
+            $('#qrcode').qrcode({ width: 350, height: 350, text: url });
+        }
+    </script>
+
+}

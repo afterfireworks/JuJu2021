@@ -1,0 +1,42 @@
+﻿@model MainSite.Models.Chairman
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>主委資料明細</h2>
+
+<div>
+    <h4>Chairman</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Working)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Working)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resident.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resident.Password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { id = Model.ChairmanAccount }) |
+    @Html.ActionLink("返回權限列表", "Index")
+</p>

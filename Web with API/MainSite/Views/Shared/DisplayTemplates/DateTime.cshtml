@@ -1,0 +1,9 @@
+﻿@model DateTime?
+@if (Model == null)
+{
+    <span class="text-danger">No DateTime Data!!</span>
+}
+else
+{
+    <span>@(((DateTime)Model).ToString("yyyy/MM/dd  HH:mm"))</span>
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MainSite.Models.Package>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>住戶包裹管理</h2>
+
+<p>
+    @Html.ActionLink("新增已收包裹", "Create")
+</p>
+<table class="table">
+    <tr>
+        <h5>未領取包裹列表</h5>
+        <th>
+            @Html.DisplayNameFor(model => model.Resident.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sign)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Signer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignDate)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.COD)
+        </th>
+        <th>
+            取貨連結
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td class="align-middle">
+        @Html.DisplayFor(modelItem => item.Resident.Name)
+    </td>
+    <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.ArrivalDate)
+    </td>
+    <td class="align-middle">
+        @Html.DisplayFor(modelItem => item.Sign)
+    </td>
+    @*<td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Signer)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.SignDate)
+        </td>*@
+    <td class="align-middle">
+        @Html.DisplayFor(modelItem => item.COD)
+    </td>
+    <td class="align-middle">
+        @Html.ActionLink("產生 QRcode", "QRcodeProduce", new { sn = item.SN }, new { @class = "btn btn-sm btn-info" })
+    </td>
+    <td class="align-middle">
+        @Html.ActionLink("修改", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
+        @*@Html.ActionLink("詳細", "Details", new { sn = item.SN, account = item.Account }) |*@
+        @Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
+    </td>
+</tr>
+    }
+
+</table>
+
+@{Html.RenderAction("Picked");}

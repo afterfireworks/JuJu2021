@@ -1,0 +1,62 @@
+﻿@model MainSite.Models.ReturnOfGoods
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>刪除退貨包裹資料</h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiptDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiptDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LogisticsCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LogisticsCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourierSign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourierSign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resident.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resident.Password)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("返回退貨包裹列表", "Index")
+        </div>
+    }
+</div>

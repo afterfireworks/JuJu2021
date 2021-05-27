@@ -1,0 +1,57 @@
+﻿@model MainSite.Models.ReturnOfGoods
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>退貨包裹明細</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiptDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiptDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LogisticsCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LogisticsCompany)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourierSign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourierSign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resident.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resident.Password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("返回退貨包裹列表", "Index")
+</p>

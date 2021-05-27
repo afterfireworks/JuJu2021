@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MainSite.Models.Janitor>
+
+<p>
+    @Html.ActionLink("新增管理員", "CreateJanitor")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="w-25">
+                @Html.DisplayNameFor(model => model.JanitorAccount)
+            </th>
+            <th class="w-25">
+                設定者
+            </th>
+            <th class="w-25">
+                設定者姓名
+            </th>
+            <th class="w-25"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JanitorAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChairmanAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chairman.Resident.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("修改資料", "Edit", new { janitorAccount = item.JanitorAccount }, new { @class = "btn btn-sm btn-outline-dark" })
+                    @*@Html.ActionLink("Details", "Details", new { id=item.JanitorAccount }) |*@
+                    @*@Html.ActionLink("刪除資料", "Delete", new { janitorAccount = item.JanitorAccount }, new { @class = "btn btn-sm btn-outline-dark" })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

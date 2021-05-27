@@ -1,0 +1,10 @@
+﻿@Html.TextBoxFor(m => m, new { @class = "date" })
+
+<script>
+    $(function () {
+        $('.date').datetimepicker({
+            format: "YYYY/MM/DD",
+            defaultDate: new Date()
+        });
+    });
+</script>

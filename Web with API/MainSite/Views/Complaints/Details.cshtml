@@ -1,0 +1,50 @@
+﻿@model MainSite.Models.Complaint
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>住戶抱怨明細</h2>
+
+<div>
+    <h4>Complaint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resident.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resident.Password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("編輯", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("返回抱怨列表", "Index")
+</p>

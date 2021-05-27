@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title 居居</title>
+    @Styles.Render("~/Content/css")
+    @RenderSection("partialcss", false)
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
+        <div class="container">
+            @*<div class="navbar-header">*@
+                <button type="button" class="navbar-toggle d-md-none" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @Html.ActionLink("管理員管理頁", "Index", "Home", new { area = "" }, new { @class = "navbar-brand mr-5" })
+            @*</div>*@
+            <div class="navbar-collapse collapse row justify-content-between"  id="navbarNav">
+                <ul class="nav navbar-nav float-right float-md-left">
+                    <li class="nav-item">@Html.ActionLink("退貨包裹", "Index", "ReturnOfGood", new { area = "" }, new { @class = "nav-link"})</li>
+                    <li class="nav-item">@Html.ActionLink("代收人設定", "Index", "Collector", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("住戶管理", "Index", "Resident", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+                <ul class="nav navbar-nav float-right float-md-right">
+                    <li class="nav-item">@Html.ActionLink("主委頁面", "Index", "AdminHome", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - 居居</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

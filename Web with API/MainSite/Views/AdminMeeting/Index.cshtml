@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MainSite.Models.Meeting>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>社區會議紀錄</h4>
+<p>
+    @Html.ActionLink("新增會議紀錄", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td class="align-middle">
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td class="align-middle">
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td class="align-middle">
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td class="align-middle">
+        <a href="@Html.DisplayFor(modelItem => item.URL)" class="btn btn-sm btn-outline-dark" target="_blank">前往觀看</a>
+    </td>
+    <td class="align-middle">
+        @Html.ActionLink("編輯", "Edit", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-dark" }) 
+        @Html.ActionLink("詳細", "Details", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-dark" }) 
+        @Html.ActionLink("刪除", "Delete", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-dark" })
+    </td>
+</tr>
+}
+
+</table>

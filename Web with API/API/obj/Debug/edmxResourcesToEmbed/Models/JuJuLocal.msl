@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JuJuLocalApiModelStoreContainer" CdmEntityContainer="JuJuLocalApiEntities">
+    <EntitySetMapping Name="Chairman">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Chairman">
+        <MappingFragment StoreEntitySet="Chairman">
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Working" ColumnName="Working" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collector">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Collector">
+        <MappingFragment StoreEntitySet="Collector">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complaint">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Complaint">
+        <MappingFragment StoreEntitySet="Complaint">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Janitor">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Janitor">
+        <MappingFragment StoreEntitySet="Janitor">
+          <ScalarProperty Name="JanitorAccount" ColumnName="JanitorAccount" />
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingDetails">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.MeetingDetails">
+        <MappingFragment StoreEntitySet="MeetingDetails">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="SignDate" ColumnName="SignDate" />
+          <ScalarProperty Name="COD" ColumnName="COD" />
+          <ScalarProperty Name="Signer" ColumnName="Signer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resident">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Resident">
+        <MappingFragment StoreEntitySet="Resident">
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Committee" ColumnName="Committee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnOfGoods">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.ReturnOfGoods">
+        <MappingFragment StoreEntitySet="ReturnOfGoods">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+          <ScalarProperty Name="LogisticsCompany" ColumnName="LogisticsCompany" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="CourierSign" ColumnName="CourierSign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Announcement">
+      <EntityTypeMapping TypeName="JuJuLocalApiModel.Announcement">
+        <MappingFragment StoreEntitySet="Announcement">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SN" ColumnName="SN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

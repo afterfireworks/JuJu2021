@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JuJu2021ModelStoreContainer" CdmEntityContainer="JuJu2021Entities">
+    <EntitySetMapping Name="Chairman">
+      <EntityTypeMapping TypeName="JuJu2021Model.Chairman">
+        <MappingFragment StoreEntitySet="Chairman">
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Working" ColumnName="Working" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collector">
+      <EntityTypeMapping TypeName="JuJu2021Model.Collector">
+        <MappingFragment StoreEntitySet="Collector">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complaint">
+      <EntityTypeMapping TypeName="JuJu2021Model.Complaint">
+        <MappingFragment StoreEntitySet="Complaint">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Janitor">
+      <EntityTypeMapping TypeName="JuJu2021Model.Janitor">
+        <MappingFragment StoreEntitySet="Janitor">
+          <ScalarProperty Name="JanitorAccount" ColumnName="JanitorAccount" />
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting">
+      <EntityTypeMapping TypeName="JuJu2021Model.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeetingDetails">
+      <EntityTypeMapping TypeName="JuJu2021Model.MeetingDetails">
+        <MappingFragment StoreEntitySet="MeetingDetails">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package">
+      <EntityTypeMapping TypeName="JuJu2021Model.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="SignDate" ColumnName="SignDate" />
+          <ScalarProperty Name="COD" ColumnName="COD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resident">
+      <EntityTypeMapping TypeName="JuJu2021Model.Resident">
+        <MappingFragment StoreEntitySet="Resident">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Committee" ColumnName="Committee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnOfGoods">
+      <EntityTypeMapping TypeName="JuJu2021Model.ReturnOfGoods">
+        <MappingFragment StoreEntitySet="ReturnOfGoods">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+          <ScalarProperty Name="LogisticsCompany" ColumnName="LogisticsCompany" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="CourierSign" ColumnName="CourierSign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="JuJu2021Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="JuJu2021Model.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="JuJu2021Model.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="JuJu2021Model.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="JuJu2021Model.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JuJu2021Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="JuJu2021Model.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JuJu2021Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="JuJu2021Model.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="JuJu2021Model.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

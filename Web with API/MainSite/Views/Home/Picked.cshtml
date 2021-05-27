@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MainSite.Models.Package>
+
+<table class="table">
+    <tr>
+        <h5>已領取包裹列表</h5>
+        <th>
+            @Html.DisplayNameFor(model => model.Resident.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sign)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Signer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignDate)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.COD)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Resident.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ArrivalDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sign)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Signer)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SignDate)
+    </td>
+    @*<td>
+        @Html.DisplayFor(modelItem => item.COD)
+    </td>*@
+<td>
+    @Html.ActionLink("修改", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
+    @*@Html.ActionLink("詳細", "Details", new { sn = item.SN, account = item.Account }) |*@
+    @Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
+</td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe15a0d496564197b2d00e193fb327ed" Name="Diagram1">
+        <EntityTypeShape EntityType="JuJuLocalModel.Chairman" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Collector" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Complaint" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Janitor" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Meeting" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.MeetingDetails" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Package" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Resident" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JuJuLocalModel.ReturnOfGoods" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <AssociationConnector Association="JuJuLocalModel.FK__Chairman__Accoun__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__Janitor__Chairma__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__Collector__Accou__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__Complaint__Accou__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__MeetingDetai__SN__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__MeetingDe__Accou__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__Package__Account__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="JuJuLocalModel.FK__ReturnOfG__Accou__4316F928" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="JuJuLocalModel.Announcement" Width="1.5" PointX="5.25" PointY="12.875" />
+        <AssociationConnector Association="JuJuLocalModel.FK__Announcem__Chair__02FC7413" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

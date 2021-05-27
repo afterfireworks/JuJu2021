@@ -1,0 +1,47 @@
+﻿@model MainSite.Models.Chairman
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>刪除主委資料</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Working)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Working)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resident.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resident.Password)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("返回權限列表", "Index")
+        </div>
+    }
+</div>

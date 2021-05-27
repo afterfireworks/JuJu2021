@@ -1,0 +1,276 @@
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\MainSite.dll.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\MainSite.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\MainSite.pdb
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\csc.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\csc.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\csc.rsp
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\csi.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\csi.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\csi.rsp
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.AppContext.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Collections.Immutable.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Console.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Globalization.Calendars.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.IO.Compression.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.IO.FileSystem.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Net.Http.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Net.Sockets.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Reflection.Metadata.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.ValueTuple.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Xml.XPath.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\vbc.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\vbc.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\vbc.rsp
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\VBCSCompiler.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\roslyn\VBCSCompiler.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Antlr3.Runtime.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\EntityFramework.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\EntityFramework.SqlServer.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Microsoft.Web.Infrastructure.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Newtonsoft.Json.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Helpers.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Mvc.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Optimization.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Razor.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.WebPages.Deployment.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.WebPages.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.WebPages.Razor.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\WebGrease.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\EntityFramework.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\EntityFramework.SqlServer.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Helpers.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Mvc.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Optimization.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.Razor.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.WebPages.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.WebPages.Deployment.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\System.Web.WebPages.Razor.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Newtonsoft.Json.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Antlr3.Runtime.pdb
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\EntityFramework.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.Helpers.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.Mvc.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.Optimization.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.Razor.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.WebPages.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\obj\Debug\MainSite.csproj.CoreCompileInputs.cache
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\obj\Debug\MainSite.csproj.CopyComplete
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\obj\Debug\MainSite.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\obj\Debug\MainSite.pdb
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\GG\JuJu2021\MainSite\obj\Debug\MainSite.csprojAssemblyReference.cache
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\MainSite.dll.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\MainSite.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\MainSite.pdb
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csc.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csc.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csc.rsp
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csi.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csi.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csi.rsp
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.AppContext.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Collections.Immutable.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Console.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Globalization.Calendars.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.Compression.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.FileSystem.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Net.Http.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Net.Sockets.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Reflection.Metadata.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.ValueTuple.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.XPath.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\vbc.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\vbc.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\vbc.rsp
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\VBCSCompiler.exe
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\VBCSCompiler.exe.config
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Antlr3.Runtime.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.SqlServer.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Microsoft.Web.Infrastructure.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Newtonsoft.Json.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Helpers.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Mvc.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Optimization.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Razor.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Deployment.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Razor.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\WebGrease.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.SqlServer.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Helpers.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Mvc.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Optimization.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Razor.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Deployment.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Razor.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Newtonsoft.Json.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Antlr3.Runtime.pdb
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\EntityFramework.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Helpers.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Mvc.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Optimization.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Razor.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.WebPages.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.csprojAssemblyReference.cache
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.csproj.CoreCompileInputs.cache
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.csproj.CopyComplete
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.dll
+D:\Users\c50106\Documents\MEGAsync\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.pdb
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\MainSite.dll.config
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\MainSite.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\MainSite.pdb
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csc.exe
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csc.exe.config
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csc.rsp
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csi.exe
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csi.exe.config
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\csi.rsp
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.Managed.Core.targets
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.AppContext.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Collections.Immutable.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Console.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Globalization.Calendars.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.Compression.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.FileSystem.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Net.Http.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Net.Sockets.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Reflection.Metadata.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.ValueTuple.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.XmlDocument.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.XPath.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\vbc.exe
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\vbc.exe.config
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\vbc.rsp
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\VBCSCompiler.exe
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\roslyn\VBCSCompiler.exe.config
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Antlr3.Runtime.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.SqlServer.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Microsoft.Web.Infrastructure.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Newtonsoft.Json.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Helpers.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Mvc.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Optimization.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Razor.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Deployment.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Razor.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\WebGrease.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\EntityFramework.SqlServer.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Helpers.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Mvc.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Optimization.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.Razor.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Deployment.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\System.Web.WebPages.Razor.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Newtonsoft.Json.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Antlr3.Runtime.pdb
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\EntityFramework.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Helpers.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Mvc.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Optimization.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.Razor.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.WebPages.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.csproj.CoreCompileInputs.cache
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.csproj.CopyComplete
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.dll
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.pdb
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\MainSite\obj\Debug\MainSite.csprojAssemblyReference.cache

@@ -1,0 +1,77 @@
+﻿@model MainSite.Models.Announcement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>公告明細</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Chairman.Resident.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chairman.Resident.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd>
+            <img src="@Url.Action("GetImage", "AdminAnnouncement", new { sn = this.Model.SN, date = this.Model.Date })" class="card-img-top img-thumbnail img" />
+        </dd>
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("編輯", "Edit", new { sn = item.SN, date = item.Date }) |*@
+    @Html.ActionLink("返回公告列表", "Index")
+</p>
+
+@section partialcss{
+    <style>
+        .img {
+            width:500px;
+            height:auto;
+        }
+    </style>
+    }

@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JuJu2021Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Chairman">
+    <Key>
+      <PropertyRef Name="ChairmanAccount" />
+    </Key>
+    <Property Name="ChairmanAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Working" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Resident" Relationship="Self.FK__Chairman__Accoun__01D345B0" FromRole="Chairman" ToRole="Resident" />
+    <NavigationProperty Name="Janitor" Relationship="Self.FK__Janitor__Chairma__04AFB25B" FromRole="Chairman" ToRole="Janitor" />
+  </EntityType>
+  <EntityType Name="Collector">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Resident" Relationship="Self.FK__Collector__Accou__681373AD" FromRole="Collector" ToRole="Resident" />
+  </EntityType>
+  <EntityType Name="Complaint">
+    <Key>
+      <PropertyRef Name="SN" />
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="800" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Resident" Relationship="Self.FK__Complaint__Accou__6AEFE058" FromRole="Complaint" ToRole="Resident" />
+  </EntityType>
+  <EntityType Name="Janitor">
+    <Key>
+      <PropertyRef Name="JanitorAccount" />
+    </Key>
+    <Property Name="JanitorAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ChairmanAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Chairman" Relationship="Self.FK__Janitor__Chairma__04AFB25B" FromRole="Janitor" ToRole="Chairman" />
+  </EntityType>
+  <EntityType Name="Meeting">
+    <Key>
+      <PropertyRef Name="SN" />
+    </Key>
+    <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MeetingDetails" Relationship="Self.FK__MeetingDetai__SN__72910220" FromRole="Meeting" ToRole="MeetingDetails" />
+  </EntityType>
+  <EntityType Name="MeetingDetails">
+    <Key>
+      <PropertyRef Name="SN" />
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="SN" Type="Int64" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="URL" Type="String" MaxLength="2083" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Meeting" Relationship="Self.FK__MeetingDetai__SN__72910220" FromRole="MeetingDetails" ToRole="Meeting" />
+    <NavigationProperty Name="Resident" Relationship="Self.FK__MeetingDe__Accou__73852659" FromRole="MeetingDetails" ToRole="Resident" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="SN" />
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sign" Type="Boolean" Nullable="false" />
+    <Property Name="SignDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="COD" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Resident" Relationship="Self.FK__Package__Account__078C1F06" FromRole="Package" ToRole="Resident" />
+  </EntityType>
+  <EntityType Name="Resident">
+    <Key>
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Committee" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Chairman" Relationship="Self.FK__Chairman__Accoun__01D345B0" FromRole="Resident" ToRole="Chairman" />
+    <NavigationProperty Name="Collector" Relationship="Self.FK__Collector__Accou__681373AD" FromRole="Resident" ToRole="Collector" />
+    <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__Accou__6AEFE058" FromRole="Resident" ToRole="Complaint" />
+    <NavigationProperty Name="MeetingDetails" Relationship="Self.FK__MeetingDe__Accou__73852659" FromRole="Resident" ToRole="MeetingDetails" />
+    <NavigationProperty Name="Package" Relationship="Self.FK__Package__Account__078C1F06" FromRole="Resident" ToRole="Package" />
+    <NavigationProperty Name="ReturnOfGoods" Relationship="Self.FK__ReturnOfG__Accou__6DCC4D03" FromRole="Resident" ToRole="ReturnOfGoods" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReturnOfGoods">
+    <Key>
+      <PropertyRef Name="SN" />
+      <PropertyRef Name="Account" />
+    </Key>
+    <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReceiptDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LogisticsCompany" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sign" Type="Boolean" Nullable="false" />
+    <Property Name="CourierSign" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Resident" Relationship="Self.FK__ReturnOfG__Accou__6DCC4D03" FromRole="ReturnOfGoods" ToRole="Resident" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Chairman__Accoun__01D345B0">
+    <End Role="Resident" Type="Self.Resident" Multiplicity="1" />
+    <End Role="Chairman" Type="Self.Chairman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Chairman">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Janitor__Chairma__04AFB25B">
+    <End Role="Chairman" Type="Self.Chairman" Multiplicity="1" />
+    <End Role="Janitor" Type="Self.Janitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chairman">
+        <PropertyRef Name="ChairmanAccount" />
+      </Principal>
+      <Dependent Role="Janitor">
+        <PropertyRef Name="ChairmanAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Collector__Accou__681373AD">
+    <End Role="Resident" Type="Self.Resident" Multiplicity="1" />
+    <End Role="Collector" Type="Self.Collector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Collector">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complaint__Accou__6AEFE058">
+    <End Role="Resident" Type="Self.Resident" Multiplicity="1" />
+    <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeetingDetai__SN__72910220">
+    <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+    <End Role="MeetingDetails" Type="Self.MeetingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Meeting">
+        <PropertyRef Name="SN" />
+      </Principal>
+      <Dependent Role="MeetingDetails">
+        <PropertyRef Name="SN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MeetingDe__Accou__73852659">
+    <End Role="Resident" Type="Self.Resident" Multiplicity="1" />
+    <End Role="MeetingDetails" Type="Self.MeetingDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="MeetingDetails">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Package__Account__078C1F06">
+    <End Role="Resident" Type="Self.Resident" Multiplicity="1" />
+    <End Role="Package" Type="Self.Package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Package">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReturnOfG__Accou__6DCC4D03">
+    <End Role="Resident" Type="Self.Resident" Multiplicity="1" />
+    <End Role="ReturnOfGoods" Type="Self.ReturnOfGoods" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="ReturnOfGoods">
+        <PropertyRef Name="Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JuJu2021Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Chairman" EntityType="Self.Chairman" />
+    <EntitySet Name="Collector" EntityType="Self.Collector" />
+    <EntitySet Name="Complaint" EntityType="Self.Complaint" />
+    <EntitySet Name="Janitor" EntityType="Self.Janitor" />
+    <EntitySet Name="Meeting" EntityType="Self.Meeting" />
+    <EntitySet Name="MeetingDetails" EntityType="Self.MeetingDetails" />
+    <EntitySet Name="Package" EntityType="Self.Package" />
+    <EntitySet Name="Resident" EntityType="Self.Resident" />
+    <EntitySet Name="ReturnOfGoods" EntityType="Self.ReturnOfGoods" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__Chairman__Accoun__01D345B0" Association="Self.FK__Chairman__Accoun__01D345B0">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="Chairman" EntitySet="Chairman" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Janitor__Chairma__04AFB25B" Association="Self.FK__Janitor__Chairma__04AFB25B">
+      <End Role="Chairman" EntitySet="Chairman" />
+      <End Role="Janitor" EntitySet="Janitor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Collector__Accou__681373AD" Association="Self.FK__Collector__Accou__681373AD">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="Collector" EntitySet="Collector" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complaint__Accou__6AEFE058" Association="Self.FK__Complaint__Accou__6AEFE058">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="Complaint" EntitySet="Complaint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeetingDetai__SN__72910220" Association="Self.FK__MeetingDetai__SN__72910220">
+      <End Role="Meeting" EntitySet="Meeting" />
+      <End Role="MeetingDetails" EntitySet="MeetingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MeetingDe__Accou__73852659" Association="Self.FK__MeetingDe__Accou__73852659">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="MeetingDetails" EntitySet="MeetingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Package__Account__078C1F06" Association="Self.FK__Package__Account__078C1F06">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="Package" EntitySet="Package" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReturnOfG__Accou__6DCC4D03" Association="Self.FK__ReturnOfG__Accou__6DCC4D03">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="ReturnOfGoods" EntitySet="ReturnOfGoods" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(JuJu2021Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(JuJu2021Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

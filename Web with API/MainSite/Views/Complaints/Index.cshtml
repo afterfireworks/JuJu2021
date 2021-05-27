@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MainSite.Models.Complaint>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>社區住戶抱怨列表</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resident.Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Resident.Password)
+        </td>
+        <td class="align-middle">
+            @Html.ActionLink("審核", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-sm btn-outline-dark" }) 
+            @Html.ActionLink("明細", "Details", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-sm btn-outline-dark" }) 
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-sm btn-outline-dark" })
+        </td>
+    </tr>
+}
+
+</table>
