@@ -59,36 +59,36 @@ namespace API.Controllers
             return Ok(package);
         }
 
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PickPackage(long sn, string person, string picker)
-        {
-            var thisPackage = db.Package.Where(p => p.SN == sn).FirstOrDefault();
-            var canPicker = db.Collector.Where(c => c.Account == person).FirstOrDefault().ID;
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PickPackage(long sn, string person, string picker)
+        //{
+        //    var thisPackage = db.Package.Where(p => p.SN == sn).FirstOrDefault();
+        //    var canPicker = db.Collector.Where(c => c.Account == person).FirstOrDefault().ID;
 
-            Package pakeage = new Package();
+        //    Package pakeage = new Package();
 
-            if (thisPackage.Account != picker && canPicker != picker)
-            {
-                //之後改自訂頁面
-                return "true";
-            }
-            else
-            {
-                pakeage.SN = thisPackage.SN;
-                pakeage.Account = thisPackage.Account;
-                pakeage.ArrivalDate = thisPackage.ArrivalDate;
-                pakeage.Sign = true;
-                pakeage.SignDate = thisPackage.SignDate;
-                pakeage.COD = thisPackage.COD;
-                pakeage.Signer = picker;
+        //    if (thisPackage.Account != picker && canPicker != picker)
+        //    {
+        //        //之後改自訂頁面
+                
+        //    }
+        //    else
+        //    {
+        //        pakeage.SN = thisPackage.SN;
+        //        pakeage.Account = thisPackage.Account;
+        //        pakeage.ArrivalDate = thisPackage.ArrivalDate;
+        //        pakeage.Sign = true;
+        //        pakeage.SignDate = thisPackage.SignDate;
+        //        pakeage.COD = thisPackage.COD;
+        //        pakeage.Signer = picker;
 
-                db.Package.Add(pakeage);
-                db.SaveChanges();
+        //        db.Package.Add(pakeage);
+        //        db.SaveChanges();
 
-                //之後改自訂頁面
-                //return HttpNotFound();
-            }
-        }
+        //        //之後改自訂頁面
+                
+        //    }
+        //}
 
         ////////////////////////////////////////使用者只須抓取資料 ////////////////////////////////////////
 
