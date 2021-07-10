@@ -1,45 +1,136 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using LinqKit;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MainSite.Models;
+using MainSite.ViewModels;
+using PagedList;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginStateJ]
     public class CollectorController : Controller
     {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
-        // GET: Collectors
-        public ActionResult Index()
+        //GET: Collectors
+        //public ActionResult Index(int page = 1)
+        //{
+        //    var data = db.Resident;
+        //    var collectorData = db.Collector.ToList();
+
+        //    foreach (var item in collectorData)
+        //    {
+        //        item.Account = data.Where(d => d.Account == item.Account).FirstOrDefault().Name;
+        //        item.ID = data.Where(d => d.ID == item.ID).FirstOrDefault().Name;
+        //        //item.Resident.Account = data.Where(d => d.Account == item.Account).FirstOrDefault().Name;
+        //        //item.Resident.ID = data.Where(d => d.ID == item.ID).FirstOrDefault().Name;
+        //    }
+
+        //    int pageSize = 8;
+        //    int currentPage = page < 1 ? 1 : page;
+        //    var pagedCust = collectorData.ToPagedList(currentPage, pageSize);
+        //    return View(pagedCust);
+        //}
+
+        public ActionResult Index(int page = 1)
         {
-            var collector = db.Collector.Include(c => c.Resident);
-            return View(collector.ToList());
+            IEnumerable<VmCollector> vmCollectors =
+            (
+                from row in db.Collector
+                join SelectByAccount in db.Resident on row.Account equals SelectByAccount.Account
+                join SelectByID in db.Resident on row.ID equals SelectByID.ID
+                //where
+                //orderby
+
+                select new VmCollector
+                    {
+                        Account = row.Account,
+                        ID = row.ID,
+                        AccountName = SelectByAccount.Name,
+                        IDName = SelectByID.Name,
+                    }
+            );
+
+            var data = vmCollectors.ToList();
+            int pageSize = 8;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = data.ToPagedList(currentPage, pageSize);
+
+            return View(pagedCust);
+
         }
 
-        // GET: Collectors/Details/5
-        //public ActionResult Details(string account)
+
+        //    from 
+        //    Collector-account id;resident name   
+
+        //public ActionResult Index(int page = 1,int x = 1)
         //{
-        //    if (account == null)
+        //    IEnumerable<VmCollector> vmCollectors =
+        //    (
+        //    from collector as col
+        //    inner join resident as r on col.Account = r.Account
+        //    inner join resident as re on col.ID = re.ID
+        //    where 
+        //    orderby 
+
+        //    select new VmCollector
         //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        Account = Resident.Account,
+        //        ID = Resident.ID,
+        //        AccountName = Collector.Account,
+        //        IDName = Collector.ID,
         //    }
-        //    Collector collector = db.Collector.Find(account);
-        //    if (collector == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(collector);
+        //    );
+
+        //    return View(vmCollectors);
         //}
+
+        [ActionName("Serch")]
+        public ActionResult Index(string option, string search, int page = 1)
+        {
+            var data = db.Resident;
+            var collectorData = db.Collector.ToList();
+
+            if (option == "id")
+            {
+                var personAccount = db.Resident.Where(r => r.ID == search).FirstOrDefault().Account;
+                collectorData = db.Collector.Where(c => c.Account == personAccount || personAccount == null).ToList();
+            }
+            else if (option == "account")
+            {
+                collectorData = db.Collector.Where(c => c.Account == search || search == null).ToList();
+            }
+            else
+            {
+                //collectorData = collectorData;
+            }
+
+            foreach (var item in collectorData)
+            {
+                item.Resident.Account = data.Where(d => d.Account == item.Account).FirstOrDefault().Name;
+                item.Resident.ID = data.Where(d => d.ID == item.ID).FirstOrDefault().Name;
+            }
+
+            int pageSize = 8;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = collectorData.ToPagedList(currentPage, pageSize);
+            return View("Index", pagedCust);
+
+        }
 
         // GET: Collectors/Create
         public ActionResult Create()
         {
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Account");
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", db.Resident);
+            ViewBag.ID = new SelectList(db.Resident, "ID", "Name", db.Resident);
             return View();
         }
 
@@ -57,7 +148,8 @@ namespace MainSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Account", collector.Account);
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", collector.Account);
+            ViewBag.ID = new SelectList(db.Resident, "ID", "Name", collector.ID);
             return View(collector);
         }
 
@@ -73,7 +165,8 @@ namespace MainSite.Controllers
             {
                 return HttpNotFound();
             }
-            
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name");
+            ViewBag.ID = new SelectList(db.Resident, "ID", "Name");
             return View(collector);
         }
 
@@ -102,10 +195,18 @@ namespace MainSite.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             var collector = db.Collector.Where(c => c.Account == account && c.ID == id).FirstOrDefault();
+            
+
             if (collector == null)
             {
                 return HttpNotFound();
             }
+
+            collector.Resident.Account = db.Resident.Find(account).Name;
+            var collectorName = db.Resident.Where(r => r.ID == collector.ID).FirstOrDefault().Name;
+            
+            collector.Resident.ID = collectorName;
+
             return View(collector);
         }
 
@@ -120,6 +221,7 @@ namespace MainSite.Controllers
             return RedirectToAction("Index");
         }
 
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -129,4 +231,5 @@ namespace MainSite.Controllers
             base.Dispose(disposing);
         }
     }
+
 }

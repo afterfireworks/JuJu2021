@@ -6,18 +6,21 @@
 @*<h2>QRcodeProduce</h2>*@
 
 @*<p>SN = @ViewBag.SN</p>
-<p>Person = @ViewBag.Person</p>
-<p>PickerID = @ViewBag.PickerID</p>*@
+    <p>Person = @ViewBag.Person</p>
+    <p>PickerID = @ViewBag.PickerID</p>*@
 
 @*<div id="qrCodeBox">*@
-    @*<input id="text" class="input-field center" type="text" value="" />*@
-    @*<a id="generate" class="btn">生成</a>*@
-    @*<div id="qrcode"></div>
-</div>*@
+@*<input id="text" class="input-field center" type="text" value="" />*@
+@*<a id="generate" class="btn">生成</a>*@
+@*<div id="qrcode"></div>
+    </div>*@
 <div id="qrCodeBox">
     <div id="qrcode"></div>
     <h3>請對準螢幕</h3>
+    @Html.ActionLink("返回包裹列表", "Index", "", new { @class = "btn btn-sm btn-outline-dark mt-5" })
 </div>
+
+
 
 
 @section partialcss{
@@ -26,12 +29,12 @@
             width: 100%;
             height: 80vh;
             display: flex;
-            flex-direction:column;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-       /* #generate {
+        /* #generate {
             margin: 50px;
         }*/
 
@@ -65,7 +68,7 @@
 
         var actionLink = "";
 
-        let url = `${actionLink}?sn=${SN}&account=${Person}&pickerman=${PickerID}`;
+        let url = `Packages?sn=${SN}&userAccount=${Person}&recipient=`;
 
         makeCode(url);
 

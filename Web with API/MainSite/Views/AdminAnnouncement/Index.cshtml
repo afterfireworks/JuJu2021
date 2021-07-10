@@ -1,16 +1,19 @@
 ﻿@model IEnumerable<MainSite.Models.Announcement>
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "社區公告";
 }
 
+<div class="indexContent">
 <h4>社區公告管理</h4>
 <p>
-    @Html.ActionLink("新增公告", "Create")
+    @Html.ActionLink("新增公告", "Create","",new { @class = "btn btn-sm btn-outline-success" })
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
-        <th>
+        <th style="width:10%;">
             @Html.DisplayNameFor(model => model.SN)
         </th>
         <th>
@@ -22,29 +25,60 @@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th style="width:25%;"></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td class="align-middle">
-            @Html.DisplayFor(modelItem => item.SN)
-        </td>
-        <td class="align-middle">
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td class="align-middle">
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td class="align-middle">
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td class="align-middle">
-            @Html.ActionLink("編輯", "Edit", new { sn = item.SN, date = item.Date }, new{ @class = "btn btn-sm btn-outline-dark" }) 
-            @Html.ActionLink("詳細", "Details", new { sn = item.SN, date = item.Date }, new { @class = "btn btn-sm btn-outline-dark" }) 
-            @Html.ActionLink("刪除", "Delete", new { sn = item.SN, date = item.Date }, new { @class = "btn btn-sm btn-outline-dark" })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="align-middle" style="width:10%;">
+                @Html.DisplayFor(modelItem => item.SN)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                <div class="fcc" style="height: 60px; display: flex;justify-content: flex-start;align-items: center;">
+                    @if (item.Picture == null)
+                    {
+                        <span>無附件</span>
+                    }
+                    else
+                    {
+                        @*<a href="/display/@item.Photo">*@
+                        <img src="@Url.Action("GetImage", "AdminAnnouncement", new { sn = item.SN, date=item.Date })" class="card-img-top img-thumbnail img" />
+                        @*</a>*@
+                    }
+                </div>
+            </td>
+            <td class="align-middle" style="width:25%;">
+                @Html.ActionLink("詳細資料", "Details", new { sn = item.SN, date = item.Date }, new { @class = "btn btn-sm btn-outline-dark" })
+                @Html.ActionLink("修改", "Edit", new { sn = item.SN, date = item.Date }, new { @class = "btn btn-sm btn-outline-primary" })
+                @Html.ActionLink("刪除", "Delete", new { sn = item.SN, date = item.Date }, new { @class = "btn btn-sm btn-outline-danger" })
+            </td>
+        </tr>
+    }
 </table>
+</div>
+<div class="text-center">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+
+</div>
+
+@section partialcss{
+    <style>
+        .img {
+            max-height: 60px;
+            width: auto;
+        }
+    </style>
+}

@@ -1,89 +1,119 @@
 ﻿@model IEnumerable<MainSite.Models.Resident>
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Index";
+ ViewBag.Title = "住戶管理";
+ }
+
+<div class="indexContent">
+    <h4>社區住戶資料管理</h4>
+    @using (Html.BeginForm("Serch", "AdminResident", FormMethod.Get))
+{
+    <form>
+        <div class="form-group">
+            @Html.RadioButton("option", "all")
+            <text>全部列表</text>
+            @Html.RadioButton("option", "account")
+            <text> 住戶帳號 </text>
+            @Html.RadioButton("option", "name")
+            <text>姓名</text>
+        </div>
+        <div class="form-group form-inline">
+            @Html.TextBox("search", "", "", new { @class = "input-group input-group-sm" })
+            <input type="submit" name="submit" value="搜尋" class="btn btn-sm btn-outline-success" />
+        </div>
+    </form>
 }
+    <p>
+        @Html.ActionLink("新住戶入住", "Create","",new { @class = "btn btn-sm btn-outline-success" })
+    </p>
+    <table class="table table-hover ">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th style="width:8%;">
+                管委
+            </th>
+            <th></th>
+        </tr>
 
-
-<h4>社區住戶資料管理</h4>
-<p>
-    @Html.ActionLink("新住戶入住", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Account)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Committee)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-<tr>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.ID)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Account)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Tel)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Address)
-    </td>
-    <td>
-        <div class="fcc" style="height: 60px; display: flex;justify-content: flex-start;align-items: center;">
-            @if (item.Photo == null)
+        @foreach (var item in Model) {
+        <tr>
+            @*<td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>*@
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Account)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td class="align-middle">
+                @if (item.Address.Length <= 8)
+                {
+                    @Html.DisplayFor(modelItem => item.Address)
+                }
+                else
+                {
+                    @(item.Address.ToString().Substring(0, 8) + " ...")
+                }
+            </td>
+            <td>
+                <div class="fcc" style="height: 60px; display: flex;justify-content: flex-start;align-items: center;">
+                    @if (item.Photo == null)
             {
-                <span>無照片</span>
+                    <span>無照片</span>
             }
             else
             {
-                @*<a href="/display/@item.Photo">*@
-                <img src="@Url.Action("GetImage", "AdminResident", new { Account = item.Account })" class="card-img-top img-thumbnail img" />
-                @*</a>*@
+                    @*<a href="/display/@item.Photo">*@
+                    <img src="@Url.Action("GetImage", "AdminResident", new { Account = item.Account })" class="card-img-top img-thumbnail img" />
+                    @*</a>*@
             }
-        </div>
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Committee)
-    </td>
-    <td class="align-middle">
-        @Html.ActionLink("編輯", "Edit", new { Account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
-        @*@Html.ActionLink("詳細", "Details", new { Account = item.Account }) |*@
-        @Html.ActionLink("刪除", "Delete", new { Account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
-    </td>
-</tr>
+                </div>
+            </td>
+            <td class="align-middle" style="width:8%;">
+                @Html.DisplayFor(modelItem => item.Committee)
+            </td>
+            <td class="align-middle" style="display: flex; flex-wrap: nowrap;">
+                @*@Html.ActionLink("詳細", "Details", new { Account = item.Account }) |*@
+                @Html.ActionLink("修改", "Edit", new { Account = item.Account }, new { @class = "btn btn-sm btn-outline-primary" })
+                @Html.ActionLink("刪除", "Delete", new { Account = item.Account }, new { @class = "btn btn-sm btn-outline-danger ml-2" })
+            </td>
+        </tr>
 }
 
-</table>
+    </table>
+</div>
+    <div class="text-center ">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+    </div>
 
-@section partialcss{
-    <style>
-        .img {
-            max-height: 60px;
-            width: auto;
-        }
-    </style>
+    @section partialcss{
+        <style>
+            .img {
+                max-height: 60px;
+                width: auto;
+            }
+        </style>
     }

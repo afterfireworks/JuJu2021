@@ -49,20 +49,10 @@
     <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="MeetingDetails" Relationship="Self.FK__MeetingDetai__SN__47DBAE45" FromRole="Meeting" ToRole="MeetingDetails" />
     <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="URL" Type="String" MaxLength="2083" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="MeetingDetails">
-    <Key>
-      <PropertyRef Name="SN" />
-      <PropertyRef Name="Account" />
-    </Key>
-    <Property Name="SN" Type="Int64" Nullable="false" />
-    <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="URL" Type="String" MaxLength="2083" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Meeting" Relationship="Self.FK__MeetingDetai__SN__47DBAE45" FromRole="MeetingDetails" ToRole="Meeting" />
-    <NavigationProperty Name="Resident" Relationship="Self.FK__MeetingDe__Accou__48CFD27E" FromRole="MeetingDetails" ToRole="Resident" />
+    <Property Name="Account" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Resident" Relationship="JuJuLocalApiModel.FK__Meeting__Account__3C34F16F" FromRole="Meeting" ToRole="Resident" />
   </EntityType>
   <EntityType Name="Package">
     <Key>
@@ -93,9 +83,9 @@
     <NavigationProperty Name="Chairman" Relationship="Self.FK__Chairman__Accoun__4BAC3F29" FromRole="Resident" ToRole="Chairman" />
     <NavigationProperty Name="Collector" Relationship="Self.FK__Collector__Accou__3D5E1FD2" FromRole="Resident" ToRole="Collector" />
     <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__Accou__403A8C7D" FromRole="Resident" ToRole="Complaint" />
-    <NavigationProperty Name="MeetingDetails" Relationship="Self.FK__MeetingDe__Accou__48CFD27E" FromRole="Resident" ToRole="MeetingDetails" />
     <NavigationProperty Name="Package" Relationship="Self.FK__Package__Account__398D8EEE" FromRole="Resident" ToRole="Package" />
     <NavigationProperty Name="ReturnOfGoods" Relationship="Self.FK__ReturnOfG__Accou__4316F928" FromRole="Resident" ToRole="ReturnOfGoods" />
+    <NavigationProperty Name="Meeting" Relationship="JuJuLocalApiModel.FK__Meeting__Account__3C34F16F" FromRole="Resident" ToRole="Meeting" />
   </EntityType>
   <EntityType Name="ReturnOfGoods">
     <Key>
@@ -166,34 +156,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MeetingDetai__SN__47DBAE45">
-    <End Role="Meeting" Type="Self.Meeting" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="MeetingDetails" Type="Self.MeetingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Meeting">
-        <PropertyRef Name="SN" />
-      </Principal>
-      <Dependent Role="MeetingDetails">
-        <PropertyRef Name="SN" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MeetingDe__Accou__48CFD27E">
-    <End Role="Resident" Type="Self.Resident" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="MeetingDetails" Type="Self.MeetingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Resident">
-        <PropertyRef Name="Account" />
-      </Principal>
-      <Dependent Role="MeetingDetails">
-        <PropertyRef Name="Account" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Package__Account__398D8EEE">
     <End Role="Resident" Type="Self.Resident" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -228,7 +190,6 @@
     <EntitySet Name="Complaint" EntityType="Self.Complaint" />
     <EntitySet Name="Janitor" EntityType="Self.Janitor" />
     <EntitySet Name="Meeting" EntityType="Self.Meeting" />
-    <EntitySet Name="MeetingDetails" EntityType="Self.MeetingDetails" />
     <EntitySet Name="Package" EntityType="Self.Package" />
     <EntitySet Name="Resident" EntityType="Self.Resident" />
     <EntitySet Name="ReturnOfGoods" EntityType="Self.ReturnOfGoods" />
@@ -248,14 +209,6 @@
       <End Role="Resident" EntitySet="Resident" />
       <End Role="Complaint" EntitySet="Complaint" />
     </AssociationSet>
-    <AssociationSet Name="FK__MeetingDetai__SN__47DBAE45" Association="Self.FK__MeetingDetai__SN__47DBAE45">
-      <End Role="Meeting" EntitySet="Meeting" />
-      <End Role="MeetingDetails" EntitySet="MeetingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK__MeetingDe__Accou__48CFD27E" Association="Self.FK__MeetingDe__Accou__48CFD27E">
-      <End Role="Resident" EntitySet="Resident" />
-      <End Role="MeetingDetails" EntitySet="MeetingDetails" />
-    </AssociationSet>
     <AssociationSet Name="FK__Package__Account__398D8EEE" Association="Self.FK__Package__Account__398D8EEE">
       <End Role="Resident" EntitySet="Resident" />
       <End Role="Package" EntitySet="Package" />
@@ -268,6 +221,10 @@
     <AssociationSet Name="FK__Announcem__Chair__02FC7413" Association="JuJuLocalApiModel.FK__Announcem__Chair__02FC7413">
       <End Role="Chairman" EntitySet="Chairman" />
       <End Role="Announcement" EntitySet="Announcement" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Meeting__Account__3C34F16F" Association="JuJuLocalApiModel.FK__Meeting__Account__3C34F16F">
+      <End Role="Resident" EntitySet="Resident" />
+      <End Role="Meeting" EntitySet="Meeting" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Announcement">
@@ -295,6 +252,20 @@
       </Principal>
       <Dependent Role="Announcement">
         <PropertyRef Name="ChairmanAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Meeting__Account__3C34F16F">
+    <End Type="JuJuLocalApiModel.Resident" Role="Resident" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="JuJuLocalApiModel.Meeting" Role="Meeting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resident">
+        <PropertyRef Name="Account" />
+      </Principal>
+      <Dependent Role="Meeting">
+        <PropertyRef Name="Account" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

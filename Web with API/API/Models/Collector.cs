@@ -14,6 +14,7 @@ namespace API.Models
     
     public partial class Collector
     {
+        public long SN { get; set; }
         public string ID { get; set; }
         public string Account { get; set; }
     

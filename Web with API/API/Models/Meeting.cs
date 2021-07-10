@@ -14,19 +14,12 @@ namespace API.Models
     
     public partial class Meeting
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Meeting()
-        {
-            this.MeetingDetails = new HashSet<MeetingDetails>();
-        }
-    
         public long SN { get; set; }
+        public string ChairmanAccount { get; set; }
         public System.DateTime Date { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public string URL { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MeetingDetails> MeetingDetails { get; set; }
+        public virtual Chairman Chairman { get; set; }
     }
 }

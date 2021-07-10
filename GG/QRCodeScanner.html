@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Scanner</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="instascan.min.js"></script>
+  <style>
+    html {
+      background-color: rgba(0, 0, 0, 0.85);
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #camBox {
+      padding: 20px;
+      box-shadow: 0px 0px 3px 0px chocolat
+    }
+
+    #camBoder {
+      width: 250px;
+      height: 250px;
+      padding: 5px;
+    }
+
+    #cam {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #camText {
+      color: azure;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="camBox">
+    <div id="camBoder">
+      <video id="cam"></video>
+    </div>
+    <h2 id="camText">
+      請對準 QR Code 圖案
+    </h2>
+  </div>
+
+
+  </div>
+
+
+  <script type="text/javascript">
+    const options = {
+      video: document.getElementById('cam'),
+      mirror: false
+    }
+
+    const scanner = new Instascan.Scanner(options);
+
+    scanner.addListener('scan', function (content) {
+      // console.log(content);
+      getConfirmation();
+
+      function getConfirmation() {
+        var retVal = confirm("確定前往 " + content + " 嗎 ?"); // 掃描結果顯示
+        if (retVal == true) {
+          console.log("allow")
+          var checkurl = /^((https?|http?|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/; // 檢查是否為網址
+          if (checkurl.test(content)) {
+            console.log(content)
+            window.open(`${content}`, "_self"); // 開啟網址
+          }
+          return true;
+        } else {
+          return false;
+        }
+      }
+    });
+
+    Instascan.Camera.getCameras().then(function (cameras) {
+      if (cameras.length > 0) {
+        scanner.start(cameras[1]);
+      } else {
+        console.error('No cameras found.');
+      }
+    }).catch(function (e) {
+      console.error(e);
+    });
+
+
+    // let opts = {
+  // Whether to scan continuously for QR codes. If false, use scanner.scan() to manually scan.
+  // If true, the scanner emits the "scan" event when a QR code is scanned. Default true.
+  // continuous: true,
+
+  // The HTML element to use for the camera's video preview. Must be a <video> element.
+  // When the camera is active, this element will have the "active" CSS class, otherwise,
+  // it will have the "inactive" class. By default, an invisible element will be created to
+  // host the video.
+  // video: document.getElementById('preview'),
+
+  // Whether to horizontally mirror the video preview. This is helpful when trying to
+  // scan a QR code with a user-facing camera. Default true.
+  // mirror: true,
+
+  // Whether to include the scanned image data as part of the scan result. See the "scan" event
+  // for image format details. Default false.
+  // captureImage: false,
+
+  // Only applies to continuous mode. Whether to actively scan when the tab is not active.
+  // When false, this reduces CPU usage when the tab is not active. Default true.
+  // backgroundScan: true,
+
+  // Only applies to continuous mode. The period, in milliseconds, before the same QR code
+  // will be recognized in succession. Default 5000 (5 seconds).
+  // refractoryPeriod: 5000,
+
+  // Only applies to continuous mode. The period, in rendered frames, between scans. A lower scan period
+  // increases CPU usage but makes scan response faster. Default 1 (i.e. analyze every frame).
+  // scanPeriod: 1
+// };
+  </script>
+
+</body>
+
+</html>

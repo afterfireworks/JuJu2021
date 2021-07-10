@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JuJu_LocalModelStoreContainer" CdmEntityContainer="JuJu_LocalEntities">
+    <EntitySetMapping Name="Announcement">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Announcement">
+        <MappingFragment StoreEntitySet="Announcement">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chairman">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Chairman">
+        <MappingFragment StoreEntitySet="Chairman">
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Working" ColumnName="Working" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collector">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Collector">
+        <MappingFragment StoreEntitySet="Collector">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complaint">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Complaint">
+        <MappingFragment StoreEntitySet="Complaint">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Janitor">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Janitor">
+        <MappingFragment StoreEntitySet="Janitor">
+          <ScalarProperty Name="JanitorAccount" ColumnName="JanitorAccount" />
+          <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Package">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="SignDate" ColumnName="SignDate" />
+          <ScalarProperty Name="COD" ColumnName="COD" />
+          <ScalarProperty Name="Signer" ColumnName="Signer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resident">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.Resident">
+        <MappingFragment StoreEntitySet="Resident">
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Committee" ColumnName="Committee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnOfGoods">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.ReturnOfGoods">
+        <MappingFragment StoreEntitySet="ReturnOfGoods">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+          <ScalarProperty Name="LogisticsCompany" ColumnName="LogisticsCompany" />
+          <ScalarProperty Name="Sign" ColumnName="Sign" />
+          <ScalarProperty Name="CourierSign" ColumnName="CourierSign" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="JuJu_LocalModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

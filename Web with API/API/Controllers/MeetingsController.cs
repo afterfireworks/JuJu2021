@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -14,41 +15,50 @@ namespace API.Controllers
 {
     public class MeetingsController : ApiController
     {
-        private JuJuLocalApiEntities db = new JuJuLocalApiEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: api/Meetings
-        public IQueryable<Meeting> GetMeeting()
-        {
-            return db.Meeting.Include(m=>m.MeetingDetails);
-        }
+        //public IQueryable<Meeting> GetMeeting()
+        //{
+        //    return db.Meeting;
+        //}
+
+        //var serch = db.Meeting.Where(m => m.Date.Equals(date)).ToList();
 
         // GET: api/Meetings/5
-        [ResponseType(typeof(Meeting))]
-        public IHttpActionResult GetMeeting(String userAccount)
+
+        [HttpGet]
+        public ArrayList GetMeeting()
         {
-            var serch = db.MeetingDetails.Where(m => m.Account == userAccount).FirstOrDefault();
-            
-            //Meeting meeting = (Meeting)db.Meeting.Include(m => m.MeetingDetails);
-
-            if (serch == null)
+            ArrayList MeetingData = new ArrayList();
+            try
             {
-                return NotFound();
+                var data = db.Meeting.ToList();
+
+                if (data != null)
+                {
+                    foreach (var item in data)
+                    {
+                        object SN = item.SN;
+                        object Date = item.Date;
+                        object Title = item.Title;
+                        object URL = item.URL;
+                        
+                        Object MeetingRow = new { SN, Date, Title,URL};
+                        MeetingData.Add(MeetingRow);
+                    }
+                }
+                else
+                {
+                    object errorMessages = "Error";
+                    Object ErrorMessages = new { errorMessages };
+                    MeetingData.Add(ErrorMessages);
+                }
             }
+            catch
+            { }
 
-            return Ok(serch);
-        }
-
-        public IHttpActionResult GetMeeting(DateTime date)
-        {
-            var serch = db.Meeting.Where(m => m.Date.Equals(date)).ToList();
-
-
-            if (serch == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(serch);
+            return MeetingData;
         }
 
         ////////////////////////////////////////使用者只須抓取資料 ////////////////////////////////////////

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,25 +15,57 @@ namespace API.Controllers
 {
     public class ReturnOfGoodsController : ApiController
     {
-        private JuJuLocalApiEntities db = new JuJuLocalApiEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: api/ReturnOfGoods
-        public IQueryable<ReturnOfGoods> GetReturnOfGoods()
-        {
-            return db.ReturnOfGoods;
-        }
+        //public IQueryable<ReturnOfGoods> GetReturnOfGoods()
+        //{
+        //    return db.ReturnOfGoods;
+        //}
 
         // GET: api/ReturnOfGoods/5
-        [ResponseType(typeof(ReturnOfGoods))]
-        public IHttpActionResult GetReturnOfGoods(string userAccount)
+        [HttpGet]
+        public ArrayList GetReturnOfGoods(string userAccount)
         {
-            var returnOfGoods = db.ReturnOfGoods.Where(r=>r.Account==userAccount).ToList();
-            if (returnOfGoods == null)
+            ArrayList ReturnOfGoodsData = new ArrayList();
+            try
             {
-                return NotFound();
-            }
+                var data = from u in db.ReturnOfGoods
+                           where u.Account == userAccount
+                           select u;
 
-            return Ok(returnOfGoods);
+                if (data.ToList() != null)
+                {
+                    foreach (var item in data)
+                    {
+                        //object Account = userAccount;
+                        object SN = item.SN;
+                        object ReceiptDate = item.ReceiptDate;
+                        object LogisticsCompany = item.LogisticsCompany;
+                        object Sign = item.Sign? "貨運已領取": "貨運未領取";
+                        object CourierSign = item.CourierSign;
+
+
+                        Object ReturnOfGoodsRow = new { SN, ReceiptDate, LogisticsCompany, Sign, CourierSign };
+                        ReturnOfGoodsData.Add(ReturnOfGoodsRow);
+                    }
+
+                    //object errorMessages = "Success";
+                    //Object ErrorMessages = new { errorMessages };
+                    //CollectorData.Add(info);
+                }
+
+                else
+                {
+                    object errorMessages = "Error";
+                    Object ErrorMessages = new { errorMessages };
+                    ReturnOfGoodsData.Add(ErrorMessages);
+                }
+            }
+            catch
+            { }
+
+            return ReturnOfGoodsData;
         }
 
         [ResponseType(typeof(ReturnOfGoods))]

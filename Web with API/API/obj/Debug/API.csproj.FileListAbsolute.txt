@@ -194,7 +194,6 @@ C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\API\bin\EntityFramew
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\API\bin\zh-Hant\EntityFramework.resources.dll
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\API\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu2021\Web with API\API\obj\Debug\API.csprojAssemblyReference.cache
-C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csprojAssemblyReference.cache
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csproj.CoreCompileInputs.cache
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.dll
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.pdb
@@ -295,3 +294,105 @@ C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.W
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
 C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csproj.CopyComplete
+C:\AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\API.dll.config
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\API.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\API.pdb
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\csc.exe
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\csc.exe.config
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\csc.rsp
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\csi.exe
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\csi.exe.config
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\csi.rsp
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.AppContext.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Collections.Immutable.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Console.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Globalization.Calendars.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.IO.Compression.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.IO.FileSystem.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Net.Http.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Net.Sockets.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Reflection.Metadata.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.ValueTuple.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Xml.XPath.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\vbc.exe
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\vbc.exe.config
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\vbc.rsp
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\VBCSCompiler.exe
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\roslyn\VBCSCompiler.exe.config
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Antlr3.Runtime.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\EntityFramework.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\EntityFramework.SqlServer.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Microsoft.Web.Infrastructure.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Newtonsoft.Json.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Net.Http.Formatting.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Helpers.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Http.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Http.WebHost.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Mvc.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Optimization.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Razor.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.WebPages.Deployment.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.WebPages.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.WebPages.Razor.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\WebGrease.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\EntityFramework.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\EntityFramework.SqlServer.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Newtonsoft.Json.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Net.Http.Formatting.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Helpers.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Http.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Http.WebHost.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Mvc.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Optimization.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.Razor.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.WebPages.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.WebPages.Deployment.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\System.Web.WebPages.Razor.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Antlr3.Runtime.pdb
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\EntityFramework.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.Helpers.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.Http.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.Mvc.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.Optimization.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.Razor.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.WebPages.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csproj.CoreCompileInputs.cache
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.csproj.CopyComplete
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\API\obj\Debug\API.pdb

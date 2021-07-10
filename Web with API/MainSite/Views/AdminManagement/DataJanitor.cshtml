@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MainSite.Models.Janitor>
 
 <p>
-    @Html.ActionLink("新增管理員", "CreateJanitor")
+    @Html.ActionLink("新增管理員", "CreateJanitor","",new { @class = "btn btn-sm btn-outline-success" })
 </p>
 <table class="table">
     <thead>
@@ -32,7 +32,7 @@
                     @Html.DisplayFor(modelItem => item.Chairman.Resident.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("修改資料", "Edit", new { janitorAccount = item.JanitorAccount }, new { @class = "btn btn-sm btn-outline-dark" })
+                    @Html.ActionLink("修改資料", "EditJanitor", new { janitorAccount = item.JanitorAccount }, new { @class = "btn btn-sm btn-outline-danger ml-5" })
                     @*@Html.ActionLink("Details", "Details", new { id=item.JanitorAccount }) |*@
                     @*@Html.ActionLink("刪除資料", "Delete", new { janitorAccount = item.JanitorAccount }, new { @class = "btn btn-sm btn-outline-dark" })*@
                 </td>

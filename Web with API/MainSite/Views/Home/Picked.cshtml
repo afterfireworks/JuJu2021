@@ -1,8 +1,16 @@
 ﻿@model IEnumerable<MainSite.Models.Package>
+@using PagedList;
+@using PagedList.Mvc;
 
+<div class="indexContent">
+<h2>住戶包裹管理</h2>
+
+<p>
+    @Html.ActionLink("未領取包裹", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
+</p>
+<h5>已領取包裹列表</h5>
 <table class="table">
     <tr>
-        <h5>已領取包裹列表</h5>
         <th>
             @Html.DisplayNameFor(model => model.Resident.Name)
         </th>
@@ -19,37 +27,42 @@
             @Html.DisplayNameFor(model => model.SignDate)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.COD)
-        </th>*@
+                @Html.DisplayNameFor(model => model.COD)
+            </th>*@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Resident.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ArrivalDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Sign)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Signer)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SignDate)
-    </td>
-    @*<td>
-        @Html.DisplayFor(modelItem => item.COD)
-    </td>*@
-<td>
-    @Html.ActionLink("修改", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
-    @*@Html.ActionLink("詳細", "Details", new { sn = item.SN, account = item.Account }) |*@
-    @Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
-</td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resident.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sign)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Signer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignDate)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.COD)
+                </td>*@
+        <td>
+            @Html.ActionLink("詳細", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
+            @*@Html.ActionLink("修改", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-primary" })*@
+            @*@Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-danger" })*@
+        </td>
+        </tr>
+    }
 
 </table>
+</div>
+<div class="text-center ">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Picked", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>

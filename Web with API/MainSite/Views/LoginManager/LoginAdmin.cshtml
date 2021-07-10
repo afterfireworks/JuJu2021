@@ -1,0 +1,88 @@
+﻿@model MainSite.Models.Chairman
+
+@{
+    Layout = "~/Views/Shared/_LayoutEmpty.cshtml";
+    ViewBag.Title = "主委登入";
+}
+
+@*background-color:#ede099*@
+
+<div class="background  ">
+    <div class="loginFrom">
+        <h2 class="text-center bg-secondary text-white p-2 ">主委登入</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group ">
+                    @*@Html.LabelFor(model => model.ChairmanAccount, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <h4 class="control-label col-md-12">帳號</h4>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.ChairmanAccount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ChairmanAccount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <h4 class="control-label col-md-12">密碼</h4>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="btns">
+
+                    @Html.ActionLink("返回入口", "Login", "LoginManager", new { @class = "btn btn-lg btn-dark mr-3 loginbtn " })
+                    <input type="submit" value="登入" class="btn btn-lg btn-dark mr-2 loginbtn" />
+                </div>
+                <div class="">
+                    <span class="text-danger">@ViewBag.Msg</span>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <style>
+        .background {
+            margin: auto;
+            background-Image: url('../../Content/Image/LoginAdmin.jpg');
+            background-size: cover;
+            width: 900px;
+            height: 500px;
+        }
+
+        .loginFrom {
+            background-color: rgba(255,255,255,0.3);
+            padding: 50px;
+            width: 380px;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .btns {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loginbtn{
+            width:140px;
+            height:50px;
+        }
+    </style>
+}

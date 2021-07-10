@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQueryQRCode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="JQuery.qrcode.min.js"></script>
+    <style>
+        html {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100vw;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #qrCodeBox {
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #generate {
+            margin: 50px;
+        }
+
+        #qrcode {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="qrCodeBox">
+        <input id="text" class="input-field center" type="text" value="" />
+        <a id="generate" class="btn">生成</a>
+        <div id="qrcode"></div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        var elText = document.getElementById("text");
+
+        $('#generate').click(function () {
+
+            let url = elText.value
+            makeCode(url);
+        });
+
+        function makeCode(url) {
+            $('canvas').remove();
+
+            if (!url) {
+                alert("Input a text");
+                elText.focus();
+                return;
+            }
+
+            console.log(url)
+
+            $('#qrcode').qrcode({ width: 256, height: 256, text: url });
+        }
+    </script>
+</body>
+
+</html>

@@ -42,20 +42,11 @@
     <EntitySetMapping Name="Meeting">
       <EntityTypeMapping TypeName="JuJuLocalApiModel.Meeting">
         <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="Account" ColumnName="Account" />
           <ScalarProperty Name="URL" ColumnName="URL" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="SN" ColumnName="SN" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MeetingDetails">
-      <EntityTypeMapping TypeName="JuJuLocalApiModel.MeetingDetails">
-        <MappingFragment StoreEntitySet="MeetingDetails">
-          <ScalarProperty Name="SN" ColumnName="SN" />
-          <ScalarProperty Name="Account" ColumnName="Account" />
-          <ScalarProperty Name="URL" ColumnName="URL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,37 +15,62 @@ namespace API.Controllers
 {
     public class ResidentsController : ApiController
     {
-        private JuJuLocalApiEntities db = new JuJuLocalApiEntities();
+        private JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: api/Residents
-        public IQueryable<Resident> GetResident()
-        {
-            return db.Resident;
-        }
+        //public IQueryable<Resident> GetResident()
+        //{
+        //    return db.Resident;
+        //}
 
         // GET: api/Residents/5
-        [ResponseType(typeof(Resident))]
-        public IHttpActionResult GetResident(string uesrAccount)
+        [HttpGet]
+        public ArrayList GetResident(string userAccount)
         {
-            Resident resident = db.Resident.Find(uesrAccount);
-            if (resident == null)
+            ArrayList ResidentData = new ArrayList();
+            try
             {
-                return NotFound();
-            }
+                var data = from u in db.Resident
+                           where u.Account == userAccount 
+                           select u;
 
-            return Ok(resident);
+                if (data.FirstOrDefault() != null)
+                {
+                    object Account = data.FirstOrDefault().Account;
+                    object ID = data.FirstOrDefault().ID;
+                    object Name = data.FirstOrDefault().Name;
+                    object Tel = data.FirstOrDefault().Tel;
+                    object Address = data.FirstOrDefault().Address;
+                    object Photo = data.FirstOrDefault().Photo;
+                    object errorMessages = "Success";
+
+                    Object ResidentRow = new { Account, ID, Name , Tel, Address, Photo, errorMessages };
+                    ResidentData.Add(ResidentRow);
+                }
+
+                else
+                {
+                    object errorMessages = "Error";
+                    Object ErrorMessages = new {  errorMessages };
+                    ResidentData.Add(ErrorMessages);
+                }
+            }
+            catch
+            { }
+
+            return ResidentData;
         }
 
         // PUT: api/Residents/5
         //[ResponseType(typeof(void))]
-        //public IHttpActionResult PutResident(string uesrAccount, Resident resident)
+        //public IHttpActionResult PutResident(string id, Resident resident)
         //{
         //    if (!ModelState.IsValid)
         //    {
         //        return BadRequest(ModelState);
         //    }
 
-        //    if (uesrAccount != resident.Account)
+        //    if (id != resident.Account)
         //    {
         //        return BadRequest();
         //    }
@@ -57,7 +83,7 @@ namespace API.Controllers
         //    }
         //    catch (DbUpdateConcurrencyException)
         //    {
-        //        if (!ResidentExists(uesrAccount))
+        //        if (!ResidentExists(id))
         //        {
         //            return NotFound();
         //        }
@@ -71,40 +97,40 @@ namespace API.Controllers
         //}
 
         // POST: api/Residents
-        [ResponseType(typeof(Resident))]
-        public IHttpActionResult PostResident(Resident resident)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[ResponseType(typeof(Resident))]
+        //public IHttpActionResult PostResident(Resident resident)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Resident.Add(resident);
+        //    db.Resident.Add(resident);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (ResidentExists(resident.Account))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (ResidentExists(resident.Account))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtRoute("DefaultApi", new { uesrAccount = resident.Account }, resident);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = resident.Account }, resident);
+        //}
 
         // DELETE: api/Residents/5
         //[ResponseType(typeof(Resident))]
-        //public IHttpActionResult DeleteResident(string uesrAccount)
+        //public IHttpActionResult DeleteResident(string id)
         //{
-        //    Resident resident = db.Resident.Find(uesrAccount);
+        //    Resident resident = db.Resident.Find(id);
         //    if (resident == null)
         //    {
         //        return NotFound();
@@ -125,9 +151,9 @@ namespace API.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ResidentExists(string uesrAccount)
+        private bool ResidentExists(string id)
         {
-            return db.Resident.Count(e => e.Account == uesrAccount) > 0;
+            return db.Resident.Count(e => e.Account == id) > 0;
         }
     }
 }

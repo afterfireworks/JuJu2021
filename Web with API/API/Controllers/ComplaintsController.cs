@@ -14,19 +14,19 @@ namespace API.Controllers
 {
     public class ComplaintsController : ApiController
     {
-        private JuJuLocalApiEntities db = new JuJuLocalApiEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: api/Complaints
-        public IQueryable<Complaint> GetComplaint()
-        {
-            return db.Complaint;
-        }
+        //public IQueryable<Complaint> GetComplaint()
+        //{
+        //    return db.Complaint;
+        //}
 
         // GET: api/Complaints/5
         [ResponseType(typeof(Complaint))]
-        public IHttpActionResult GetComplaint(long id)
+        public IHttpActionResult GetComplaint(string userAccount)
         {
-            Complaint complaint = db.Complaint.Find(id);
+            var complaint = db.Complaint.Where(c => c.Account == userAccount).ToList();
             if (complaint == null)
             {
                 return NotFound();
@@ -47,24 +47,25 @@ namespace API.Controllers
             db.Complaint.Add(complaint);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { sn = complaint.SN }, complaint);
+            //return CreatedAtRoute("DefaultApi", new { sn = complaint.SN }, complaint);
+            return Ok(complaint);
         }
 
         // DELETE: api/Complaints/5
-        [ResponseType(typeof(Complaint))]
-        public IHttpActionResult DeleteComplaint(long sn)
-        {
-            Complaint complaint = db.Complaint.Find(sn);
-            if (complaint == null)
-            {
-                return NotFound();
-            }
+        //[ResponseType(typeof(Complaint))]
+        //public IHttpActionResult DeleteComplaint(long sn)
+        //{
+        //    Complaint complaint = db.Complaint.Find(sn);
+        //    if (complaint == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Complaint.Remove(complaint);
-            db.SaveChanges();
+        //    db.Complaint.Remove(complaint);
+        //    db.SaveChanges();
 
-            return Ok(complaint);
-        }
+        //    return Ok(complaint);
+        //}
 
         protected override void Dispose(bool disposing)
         {

@@ -7,18 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MainSite.Models;
+using PagedList;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginState]
     public class AdminAnnouncementController : Controller
-    {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+    {  
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
-        // GET: AdminAnnouncements
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var announcement = db.Announcement.Include(a => a.Chairman);
-            return View(announcement.ToList());
+            var announcement = db.Announcement.Include(a => a.Chairman).ToList();
+            int pageSize = 6;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = announcement.ToPagedList(currentPage, pageSize);
+
+            return View(pagedCust);
         }
 
         public FileContentResult GetImage(long? sn, DateTime date)
@@ -57,7 +62,7 @@ namespace MainSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SN,Date,ChairmanAccount,Category,Title,Description,Picture")] Announcement announcement, HttpPostedFileBase image)
         {
-            if (image != null)
+            if (image == null)
             {
                 announcement.Picture = new byte[image.ContentLength];
                 image.InputStream.Read(announcement.Picture, 0, image.ContentLength);
@@ -81,13 +86,15 @@ namespace MainSite.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Announcement announcement = db.Announcement.Where(a => a.SN == sn && a.Date == date).FirstOrDefault();
+            
             if (announcement == null)
             {
                 return HttpNotFound();
             }
+            TempData["oldPicture"] = announcement.Picture;
             ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "Account", announcement.ChairmanAccount);
-            ViewBag.oderimg = announcement.Picture.Clone();
             return View(announcement);
         }
 
@@ -96,18 +103,17 @@ namespace MainSite.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SN,Date,ChairmanAccount,Category,Title,Description,Picture")] Announcement announcement, HttpPostedFileBase image)
+        public ActionResult Edit([Bind(Include = "SN,Date,ChairmanAccount,Category,Title,Description")] Announcement announcement, HttpPostedFileBase image)
         {
-            //byte[] oldPicture = db.Announcement.Where(a => a.SN == sn && a.Date == date).FirstOrDefault().Picture;
 
-            if (image == null)
-            {
-                //announcement.Picture = oldPicture;
-            }
-            else
+            if (image != null)
             {
                 announcement.Picture = new byte[image.ContentLength];
                 image.InputStream.Read(announcement.Picture, 0, image.ContentLength);
+            }
+            else 
+            { 
+                announcement.Picture = (byte[])TempData["oldPicture"];
             }
 
             if (ModelState.IsValid)
@@ -116,6 +122,7 @@ namespace MainSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "Account", announcement.ChairmanAccount);
             return View(announcement);
         }

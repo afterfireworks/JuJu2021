@@ -1,64 +1,93 @@
 ﻿@model IEnumerable<MainSite.Models.Complaint>
 
+@using PagedList;
+@using PagedList.Mvc;
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "抱怨處理";
 }
 
-<h4>抱怨處理頁面</h4>
-<p>目前待審核</p>
+<div class="indexContent">
+    <h4>抱怨處理頁面</h4>
 
-<table class="table">
-    <span>@Html.ActionLink("建立測試資料", "Create") </span>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Account)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Resident.Name)
-        </th>
+    <P>
+        @*@Html.ActionLink("建立測試資料 (dev)", "Create", "", new { @class = "btn btn-sm btn-outline-success" })*@
+        @Html.ActionLink((string)ViewBag.btnTitle, (string)ViewBag.btnAction, "", new { @class = "btn btn-sm btn-outline-dark" })
+    </P>
 
-        <th></th>
-    </tr>
+    <p>目前待處理</p>
+    <table class="table table-hover">
+        <tr>
+            <th style="width:10%;">
+                @Html.DisplayNameFor(model => model.SN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th style="max-width:12%;">
+                申訴人
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th style="width:20%;">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th style="width:25%;"></th>
+        </tr>
 
-    @foreach (var item in Model)
+        @foreach (var item in Model)
     {
         <tr>
-            <td class="align-middle">
+            <td class="align-middle" style="width:10%;">
                 @Html.DisplayFor(modelItem => item.SN)
             </td>
             <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
-            <td class="align-middle">
+            <td class="align-middle" style="max-width:12%;">
+                @Html.DisplayFor(modelItem => item.Resident.Name)
+            </td>
+            <td class="align-middle" style="width:20%;">
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td class="align-middle">
+                @if (item.Description.Length <= 8)
+                    {
                 @Html.DisplayFor(modelItem => item.Description)
+                    }
+                    else
+                    {
+                @(item.Description.ToString().Substring(0, 8) + " ...")
+                     }
             </td>
-            @*<td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Account)
-            </td>*@
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Resident.Name)
-            </td>
-            <td class="align-middle">
-                @*@Html.ActionLink("Edit", "Edit", new {  }) |*@
-                <div class="btn-link">@Html.ActionLink("詳細資料", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })</div>
-                @*@Html.ActionLink("Delete", "Delete", new {  })*@
+            <td class="align-middle" style="width:25%;">
+                <div style="display:flex;flex-wrap:nowrap">
+                    <div class="btn-link mr-1">@Html.ActionLink("詳細資料", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-primary" })</div>
+                    <div class="'btn-link @ViewBag.btnAttr">@Html.ActionLink("標記為已處理", "TagSolved", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-danger",onclick="return runScript();"})</div>
+                </div>
             </td>
         </tr>
+        @*<div class="'btn-link @ViewBag.btnAttr">@Html.ActionLink("標記為已處理", "TagSolved", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-danger" })</div>*@
     }
 
-</table>
+    </table>
+</div>
+<div class="text-center">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action((string)ViewBag.pageAction, new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>
+
+@section scripts
+    {
+    <script>
+        function runScript() {
+            if (confirm("你確定要標記為以處理嗎？")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+    </script>
+}

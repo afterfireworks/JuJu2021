@@ -7,51 +7,64 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MainSite.Models;
+using PagedList;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginStateJ]
     public class ResidentController : Controller
     {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
-        // GET: Residents
-        public ActionResult Index()
+        //GET: Residents
+        public ActionResult Index(int page = 1)
         {
-            var resident = db.Resident.Include(c => c.Collector);
-            return View(resident.ToList());
+            var resident = db.Resident.ToList();
+            int pageSize = 5;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = resident.ToPagedList(currentPage, pageSize);
+
+            return View(pagedCust);
         }
 
+        //ActionResult
         [ActionName("Serch")]
-        public ActionResult Index(string option, string search)
+        public ActionResult Index(string option, string search, int page = 1)
         {
-            var data = db.Resident;
-            //if a user choose the radio button option as Subject  
+            var resident = db.Resident.ToList();
+            int pageSize = 6;
+            int currentPage = page < 1 ? 1 : page;
+            
+            //if a user choose the radio button option as Subject
+
             if (option == "id")
             {
-                //Index action method will return a view with a student records based on what a user specify the value in textbox  
-                return View("Index", data.Where(r => r.ID == search || search == null).ToList());
+                resident = db.Resident.Where(r => r.ID == search || search == null).ToList();
             }
             else if (option == "account")
             {
-                return View("Index", data.Where(r => r.Account == search || search == null).ToList());
+                resident = db.Resident.Where(r => r.Account == search || search == null).ToList();
             }
             else if (option == "name")
             {
-                return View("Index", data.Where(r => r.Name.StartsWith(search) || search == null).ToList());
+                resident = db.Resident.Where(r => r.Name.StartsWith(search) || search == null).ToList();
             }
             else
             {
-                return View("Index", data.ToList());
+                resident = db.Resident.ToList();
             }
+
+            var pagedCust = resident.ToPagedList(currentPage, pageSize);
+            return View("Index", pagedCust);
         }
 
-        public FileContentResult GetImage(String Account)
+        public FileContentResult GetImage(string Account)
         {
             var person = db.Resident.Find(Account);
             return File(person.Photo, "image/jpeg");
 
         }
-
+       
         //GET: Residents/Details/5
         //public ActionResult Details(string account)
         //{

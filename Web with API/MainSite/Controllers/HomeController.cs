@@ -7,28 +7,41 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MainSite.Models;
+using MessagingToolkit.QRCode;
+using System.Drawing;
+using System.Drawing.Imaging;
+using PagedList;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginStateJ]
     public class HomeController : Controller
     {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var package = db.Package.Where(p => p.Sign != true).Include(p => p.Resident);
-            return View(package.ToList());
+            var Package = db.Package.Where(p => p.Sign != true).ToList();
+            int pageSize = 9;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = Package.ToPagedList(currentPage, pageSize);
+
+            return View(pagedCust);
         }
-        public ActionResult Picked()
+        public ActionResult Picked(int page = 1)
         {
-            var package = db.Package.Where(p => p.Sign == true).Include(p => p.Resident);
-            return PartialView(package.ToList());
+            var Package = db.Package.Where(p => p.Sign == true).ToList();
+            int pageSize = 9;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = Package.ToPagedList(currentPage, pageSize);
+
+            return View(pagedCust);
         }
 
         public ActionResult QRcodeProduce(long? sn)
         {
-            var person = db.Package.Where(p => p.SN.Equals(sn)).FirstOrDefault().Account;
+            var person = db.Package.Where(p => p.SN==sn).FirstOrDefault().Account;
             var pickerId = db.Collector.Where(c=>c.Account==person).FirstOrDefault();
             
             ViewBag.SN = sn;
@@ -42,14 +55,14 @@ namespace MainSite.Controllers
             return View(ViewBag);
         }
 
-        // GET: Home/Details/5
-        public ActionResult Details(long? id)
+        //GET: Home/Details/5
+        public ActionResult Details(long? sn, string account)
         {
-            if (id == null)
+            if (sn == null || account == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Package package = db.Package.Find(id);
+            Package package = db.Package.Where(p => p.SN == sn && p.Account == account).FirstOrDefault();
             if (package == null)
             {
                 return HttpNotFound();
@@ -60,7 +73,7 @@ namespace MainSite.Controllers
         // GET: Home/Create
         public ActionResult Create()
         {
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password");
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", db.Resident);
             return View();
         }
 
@@ -78,12 +91,12 @@ namespace MainSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password", package.Account);
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", package.Account);
             return View(package);
         }
 
         // GET: Home/Edit/5
-        public ActionResult Edit(int? sn, String account)
+        public ActionResult Edit(int? sn, string account)
         {
             if (sn == null || account == null)
             {
@@ -92,9 +105,9 @@ namespace MainSite.Controllers
             Package package = db.Package.Where(p=>p.SN== sn && p.Account== account).FirstOrDefault();
             if (package == null)
             {
-                         return HttpNotFound();
+                return HttpNotFound();
             }
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password", package.Account);
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", package.Account);
             return View(package);
         }
 
@@ -111,7 +124,7 @@ namespace MainSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password", package.Account);
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", package.Account);
             return View(package);
         }
 
@@ -135,7 +148,7 @@ namespace MainSite.Controllers
         // POST: Home/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int? sn, String account)
+        public ActionResult DeleteConfirmed(int? sn, string account)
         {
             Package package = db.Package.Where(p => p.SN == sn && p.Account == account).FirstOrDefault();
             db.Package.Remove(package);

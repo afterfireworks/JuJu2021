@@ -54,19 +54,10 @@
       <PropertyRef Name="SN" />
     </Key>
     <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Description" Type="nvarchar" MaxLength="100" />
     <Property Name="URL" Type="varchar" MaxLength="2083" />
-  </EntityType>
-  <EntityType Name="MeetingDetails">
-    <Key>
-      <PropertyRef Name="SN" />
-      <PropertyRef Name="Account" />
-    </Key>
-    <Property Name="SN" Type="bigint" Nullable="false" />
-    <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="URL" Type="varchar" MaxLength="2083" Nullable="false" />
   </EntityType>
   <EntityType Name="Package">
     <Key>
@@ -176,31 +167,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MeetingDe__Accou__48CFD27E">
+  <Association Name="FK__Meeting__Account__3C34F16F">
     <End Role="Resident" Type="Self.Resident" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="MeetingDetails" Type="Self.MeetingDetails" Multiplicity="*" />
+    <End Role="Meeting" Type="Self.Meeting" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Resident">
         <PropertyRef Name="Account" />
       </Principal>
-      <Dependent Role="MeetingDetails">
+      <Dependent Role="Meeting">
         <PropertyRef Name="Account" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__MeetingDetai__SN__47DBAE45">
-    <End Role="Meeting" Type="Self.Meeting" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="MeetingDetails" Type="Self.MeetingDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Meeting">
-        <PropertyRef Name="SN" />
-      </Principal>
-      <Dependent Role="MeetingDetails">
-        <PropertyRef Name="SN" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -239,7 +216,6 @@
     <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Janitor" EntityType="Self.Janitor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MeetingDetails" EntityType="Self.MeetingDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Resident" EntityType="Self.Resident" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReturnOfGoods" EntityType="Self.ReturnOfGoods" Schema="dbo" store:Type="Tables" />
@@ -263,13 +239,9 @@
       <End Role="Chairman" EntitySet="Chairman" />
       <End Role="Janitor" EntitySet="Janitor" />
     </AssociationSet>
-    <AssociationSet Name="FK__MeetingDe__Accou__48CFD27E" Association="Self.FK__MeetingDe__Accou__48CFD27E">
+    <AssociationSet Name="FK__Meeting__Account__3C34F16F" Association="Self.FK__Meeting__Account__3C34F16F">
       <End Role="Resident" EntitySet="Resident" />
-      <End Role="MeetingDetails" EntitySet="MeetingDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK__MeetingDetai__SN__47DBAE45" Association="Self.FK__MeetingDetai__SN__47DBAE45">
       <End Role="Meeting" EntitySet="Meeting" />
-      <End Role="MeetingDetails" EntitySet="MeetingDetails" />
     </AssociationSet>
     <AssociationSet Name="FK__Package__Account__398D8EEE" Association="Self.FK__Package__Account__398D8EEE">
       <End Role="Resident" EntitySet="Resident" />

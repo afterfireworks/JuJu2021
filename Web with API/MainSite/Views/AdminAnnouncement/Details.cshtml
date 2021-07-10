@@ -1,76 +1,82 @@
 ﻿@model MainSite.Models.Announcement
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "公告明細";
 }
 
-<h2>公告明細</h2>
+<h2 class="text-center">公告明細</h2>
+<div class="bgdetail-long" style="overflow-y:auto;">
+    <div class="customFrom" @*style="margin-top:500px"*@>
+        <dl class="dl-horizontal"@*style="padding-top: 40vh;"*@>
+            <dt>
+                @Html.DisplayNameFor(model => model.SN)
+            </dt>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SN)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SN)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SN)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Chairman.Resident.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Chairman.Resident.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Chairman.Resident.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Chairman.Resident.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-        <dd>
-            <img src="@Url.Action("GetImage", "AdminAnnouncement", new { sn = this.Model.SN, date = this.Model.Date })" class="card-img-top img-thumbnail img" />
-        </dd>
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Picture)
+            </dt>
+            <dd>
+                @if (this.Model.Picture == null)
+            {
+                <span>無附件</span>
+            }
+            else
+            {
+                <img src="@Url.Action("GetImage", "AdminAnnouncement", new { sn = this.Model.SN, date = this.Model.Date })" class="img"/>
+            }
+            </dd>
+        </dl>
+        <div class="form-actions btn-f-c">
+            @Html.ActionLink("返回公告列表", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
+        </div>
+    </div>
 </div>
-<p>
-    @*@Html.ActionLink("編輯", "Edit", new { sn = item.SN, date = item.Date }) |*@
-    @Html.ActionLink("返回公告列表", "Index")
-</p>
 
 @section partialcss{
     <style>
         .img {
-            width:500px;
+            max-width:400px;
             height:auto;
         }
     </style>

@@ -7,37 +7,53 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MainSite.Models;
+using PagedList;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginState]
     public class AdminMeetingController : Controller
     {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
-        // GET: AdminMeeting
-        public ActionResult Index()
+        //GET: AdminMeeting
+        //public ActionResult Index()
+        //{
+        //    return View(db.Meeting.ToList());
+        //}
+        public ActionResult Index(int page = 1)
         {
-            return View(db.Meeting.ToList());
+            var meetingData = db.Meeting.ToList();
+            int pageSize = 10;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = meetingData.ToPagedList(currentPage, pageSize);
+
+            return View(pagedCust);
+            //return View(residenttData);
         }
+
+
+
 
         // GET: AdminMeeting/Details/5
-        public ActionResult Details(long? sn)
-        {
-            if (sn == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Meeting meeting = db.Meeting.Find(sn);
-            if (meeting == null)
-            {
-                return HttpNotFound();
-            }
-            return View(meeting);
-        }
+        //public ActionResult Details(long? sn)
+        //{
+        //    if (sn == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Meeting meeting = db.Meeting.Find(sn);
+        //    if (meeting == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(meeting);
+        //}
 
         // GET: AdminMeeting/Create
         public ActionResult Create()
         {
+            ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "ChairmanAccount");
             return View();
         }
 
@@ -46,7 +62,7 @@ namespace MainSite.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SN,Date,Title,Description,URL")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "SN,Date,Title,ChairmanAccount,URL")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +70,7 @@ namespace MainSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "ChairmanAccount");
             return View(meeting);
         }
 
@@ -70,6 +86,7 @@ namespace MainSite.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "ChairmanAccount");
             return View(meeting);
         }
 
@@ -78,7 +95,7 @@ namespace MainSite.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SN,Date,Title,Description,URL")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "SN,ChairmanAccount,Date,Title,URL")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +103,7 @@ namespace MainSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "ChairmanAccount");
             return View(meeting);
         }
 

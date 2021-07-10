@@ -1,67 +1,93 @@
 ﻿@model IEnumerable<MainSite.Models.ReturnOfGoods>
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "退貨管理";
 }
 
-<h2>退貨包裹管理</h2>
+<div class="indexContent">
+    <h2>退貨包裹管理</h2>
 
-<p>
-    @Html.ActionLink("新增待退包裹", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Resident.Account)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sign)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReceiptDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LogisticsCompany)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourierSign)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    <p>
+        @Html.ActionLink("新增待退包裹", "Create", "", new { @class = "btn btn-sm btn-outline-success" })
+        @Html.ActionLink("已退包裹", "Picked", "", new { @class = "btn btn-sm btn-outline-dark" })
+    </p>
+    <h5>未退貨包裹列表</h5>
+    <table class="table table-hover">
         <tr>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Resident.Account)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.Sign)
-            </td>
-            <td class="align-middle">
-                @if (item.ReceiptDate == null)
-                {
-                    <span>未收取</span>
-                }
-                else
-                {
-                    @Html.DisplayFor(modelItem => item.ReceiptDate)
-                }
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.LogisticsCompany)
-            </td>
-            <td class="align-middle">
-                @Html.DisplayFor(modelItem => item.CourierSign)
-            </td>
-            <td class="align-middle">
-                @Html.ActionLink("編輯", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
-                @Html.ActionLink("明細", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
-                @Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
-            </td>
-        </tr>
-    }
+            <th>
+                @Html.DisplayNameFor(model => model.Resident.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sign)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogisticsCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourierSign)
+            </th>
 
-</table>
-@{Html.RenderAction("Picked");}
+            <th style="width:25%;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Resident.Account)
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.Sign)
+                </td>
+                <td class="align-middle">
+                    @if (item.ReceiptDate == null)
+                    {
+                        <span>未收取</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.ReceiptDate)
+                    }
+                </td>
+                <td class="align-middle">
+                    @Html.DisplayFor(modelItem => item.LogisticsCompany)
+                </td>
+                <td class="align-middle">
+                    @if (item.CourierSign == null)
+                    {
+                        <span>無簽名</span>
+                    }
+                    else
+                    {
+                        @*<a href="/display/@item.Photo">*@
+                        <img src="@Url.Action("GetImage", "ReturnOfGood", new { sn =item.SN, account = item.Account})" class="card-img-top img-thumbnail img" />
+                        @*</a>*@
+                    }
+                </td>
+                <td class="align-middle" style="width:25%;">
+                    @Html.ActionLink("詳細資料", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
+                    @Html.ActionLink("修改", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-primary" })
+                    @Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div class="text-center ">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>
+
+@section partialcss{
+    <style>
+        .img {
+            max-height: 60px;
+            width: auto;
+        }
+    </style>
+}

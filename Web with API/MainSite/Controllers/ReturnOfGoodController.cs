@@ -7,33 +7,51 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MainSite.Models;
+using PagedList;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginStateJ]
     public class ReturnOfGoodController : Controller
     {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: ReturnOfGoods
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var returnOfGoods = db.ReturnOfGoods.Include(r => r.Resident).Where(p => p.Sign != true);
-            return View(returnOfGoods.ToList());
+            var ReturnOfGoods = db.ReturnOfGoods.Include(r => r.Resident).Where(p => p.Sign != true).ToList();
+            //return View(ReturnOfGoods);
+            int pageSize = 5;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = ReturnOfGoods.ToPagedList(currentPage, pageSize);
+            return View(pagedCust);
         }
-        public ActionResult Picked()
+        public ActionResult Picked(int page = 1)
         {
-            var returnOfGoods = db.ReturnOfGoods.Include(p => p.Resident).Where(p => p.Sign == true);
-            return PartialView(returnOfGoods.ToList());
+            var ReturnOfGoods = db.ReturnOfGoods.Include(p => p.Resident).Where(p => p.Sign == true).ToList();
+            //return PartialView(ReturnOfGoods);
+            int pageSize = 5;
+            int currentPage = page < 1 ? 1 : page;
+            var pagedCust = ReturnOfGoods.ToPagedList(currentPage, pageSize);
+            return View(pagedCust);
+        }
+
+        public FileContentResult GetImage(long? sn, string account)
+        {
+            var returnOfGood = db.ReturnOfGoods.Where(r=>r.SN==sn&&r.Account==account).FirstOrDefault();
+
+            return File(returnOfGood.CourierSign, "image/jpeg");
+
         }
 
         // GET: ReturnOfGoods/Details/5
-        public ActionResult Details(long? sn,string account)
+        public ActionResult Details(long? sn, string account)
         {
-            if (sn == null|| account==null)
+            if (sn == null || account == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ReturnOfGoods returnOfGoods = db.ReturnOfGoods.Where(r=>r.SN==sn && r.Account==account).FirstOrDefault();
+            ReturnOfGoods returnOfGoods = db.ReturnOfGoods.Where(r => r.SN == sn && r.Account == account).FirstOrDefault();
             if (returnOfGoods == null)
             {
                 return HttpNotFound();
@@ -44,7 +62,7 @@ namespace MainSite.Controllers
         // GET: ReturnOfGoods/Create
         public ActionResult Create()
         {
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password");
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Account");
             return View();
         }
 
@@ -53,16 +71,23 @@ namespace MainSite.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SN,Account,ReceiptDate,LogisticsCompany,Sign,CourierSign")] ReturnOfGoods returnOfGoods)
+        public ActionResult Create([Bind(Include = "SN,Account,ReceiptDate,LogisticsCompany,Sign,CourierSign")] ReturnOfGoods returnOfGoods, HttpPostedFileBase image)
         {
+            if (image != null)
+            {
+                returnOfGoods.CourierSign = new byte[image.ContentLength];
+                image.InputStream.Read(returnOfGoods.CourierSign, 0, image.ContentLength);
+            }
+
             if (ModelState.IsValid)
             {
                 db.ReturnOfGoods.Add(returnOfGoods);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password", returnOfGoods.Account);
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", returnOfGoods.Account);
             return View(returnOfGoods);
         }
 
@@ -79,7 +104,10 @@ namespace MainSite.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Account", returnOfGoods.Account);
+
+            TempData["oldCourierSign"] = returnOfGoods.CourierSign;
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", returnOfGoods.Account);
+
             return View(returnOfGoods);
         }
 
@@ -88,16 +116,31 @@ namespace MainSite.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SN,Account,ReceiptDate,LogisticsCompany,Sign,CourierSign")] ReturnOfGoods returnOfGoods)
+        public ActionResult Edit([Bind(Include = "SN,Account,ReceiptDate,LogisticsCompany,Sign,CourierSign")] ReturnOfGoods returnOfGoods, HttpPostedFileBase image)
         {
+            ModelState.Remove("SN");
+
+            if (image != null)
+            {
+                returnOfGoods.CourierSign = new byte[image.ContentLength];
+                image.InputStream.Read(returnOfGoods.CourierSign, 0, image.ContentLength);
+            }
+            else
+            {
+                returnOfGoods.CourierSign = (byte[])TempData["oldCourierSign"];
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(returnOfGoods).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.Account = new SelectList(db.Resident, "Account", "Account", returnOfGoods.Account);
+
             return View(returnOfGoods);
+
         }
 
         // GET: ReturnOfGoods/Delete/5

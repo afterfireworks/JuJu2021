@@ -19,6 +19,7 @@ namespace API.Models
         public System.DateTime Date { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public bool Solved { get; set; }
     
         public virtual Resident Resident { get; set; }
     }

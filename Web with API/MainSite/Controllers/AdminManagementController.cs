@@ -10,9 +10,10 @@ using MainSite.Models;
 
 namespace MainSite.Controllers
 {
+    [CheckLoginState]
     public class AdminManagementController : Controller
     {
-        private JuJuLocalEntities db = new JuJuLocalEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: AdminManagement
         public ActionResult Index()
@@ -39,7 +40,7 @@ namespace MainSite.Controllers
         // GET: AdminManagement/Create
         public ActionResult Create()
         {
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password");
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Account");
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace MainSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Password", chairman.Account);
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Account", chairman.Account);
             return View(chairman);
         }
 

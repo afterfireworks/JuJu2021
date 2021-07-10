@@ -1,39 +1,73 @@
-﻿@model IEnumerable<MainSite.Models.Collector>
+﻿@*@model IEnumerable<MainSite.Models.Collector>*@
+@model IEnumerable<MainSite.ViewModels.VmCollector>
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "代收人列表";
+    ViewBag.Title = "代收人設定";
 }
 
-<h2>代收人設定與管理</h2>
+<div class="indexContent">
+    <h2>代收人設定與管理</h2>
+    @using (Html.BeginForm("Serch", "Collector", FormMethod.Get))
+    {
+        <form>
+            <div class="form-group">
+                @Html.RadioButton("option", "all")
+                <text>全部列表</text>
+                @Html.RadioButton("option", "id")
+                <text>身分證字號</text>
+                @Html.RadioButton("option", "account")
+                <text> 住戶帳號 </text>
+            </div>
+            <div class="form-group form-inline">
+                @Html.TextBox("search", "", "", new { @class = "input-group input-group-sm" })
+                <input type="submit" name="submit" value="搜尋" class="btn btn-sm btn-outline-success" />
+            </div>
+        </form>
+    }
+    <p>
+        @Html.ActionLink("新增代收人", "Create", "", new { @class = "btn btn-sm btn-outline-success" })
+    </p>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDName)
+            </th>
+            <th></th>
+        </tr>
 
- <p>
-     @Html.ActionLink("新增代收人", "Create")
- </p>
-<table class="table">
+        @foreach (var item in Model)
+        {
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Account)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID)
-        </th>
-        <th></th>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.AccountName)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.IDName)
+        </td>
+        @*<td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Account)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>*@
+        <td class="align-middle">
+            @*@Html.ActionLink("詳細資料", "Details", new { account = item.Account, id = item.ID }) |*@
+            @Html.ActionLink("修改", "Edit", new { account = item.Account, id = item.ID }, new { @class = "btn btn-sm btn-outline-primary" })
+            @Html.ActionLink("刪除", "Delete", new { account = item.Account, id = item.ID }, new { @class = "btn btn-sm btn-outline-danger" })
+        </td>
     </tr>
+        }
 
-@foreach (var item in Model) {
-<tr>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Account)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.ID)
-    </td>
-    <td class="align-middle">
-        @Html.ActionLink("編輯", "Edit", new { account = item.Account, id=item.ID }, new { @class = "btn btn-sm btn-outline-dark" }) 
-        @*@Html.ActionLink("詳細資料", "Details", new { account = item.Account, id = item.ID }) |*@
-        @Html.ActionLink("刪除", "Delete", new { account = item.Account, id = item.ID }, new { @class = "btn btn-sm btn-outline-dark" })
-    </td>
-</tr>
-}
+    </table>
+</div>
 
-</table>
+<div class="text-center">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>
+
+@*@{Html.RenderAction("Picked");}*@

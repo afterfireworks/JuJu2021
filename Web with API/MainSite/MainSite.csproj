@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +36,19 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind />
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,12 +61,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.24.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.24\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit.EntityFramework, Version=1.1.24.0, Culture=neutral, PublicKeyToken=b6c8cfc71f7a6a80, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.EntityFramework.1.1.24\lib\net45\LinqKit.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,151 +160,126 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminAnnouncementController.cs" />
     <Compile Include="Controllers\AdminManagementController.cs" />
-    <Compile Include="Controllers\CollectorController.cs" />
-    <Compile Include="Controllers\ComplaintsController.cs" />
-    <Compile Include="Controllers\AdminHomeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\AdminMeetingController.cs" />
     <Compile Include="Controllers\AdminResidentController.cs" />
+    <Compile Include="Controllers\CheckLoginState.cs" />
+    <Compile Include="Controllers\CheckLoginStateJ.cs" />
+    <Compile Include="Controllers\CollectorController.cs" />
+    <Compile Include="Controllers\AdminHomeController.cs" />
+    <Compile Include="Controllers\AdminMeetingController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginManagerController.cs" />
     <Compile Include="Controllers\ResidentController.cs" />
     <Compile Include="Controllers\ReturnOfGoodController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Announcement.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Chairman.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Collector.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Complaint.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Janitor.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JuJu2021.Context.cs">
+    <Compile Include="Models\JuJuLocaldb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuJu2021.Context.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JuJu2021.cs">
+    <Compile Include="Models\JuJuLocaldb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuJu2021.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JuJu2021.Designer.cs">
+    <Compile Include="Models\JuJuLocaldb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuJu2021.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JuJuLocal.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JuJuLocal.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JuJuLocal.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\JuJuLocal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Meeting.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MeetingDetails.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\Package.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Resident.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReturnOfGoods.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>JuJu2021.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>JuJu2021.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>JuJu2021.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VmCollector.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-datetimepicker.css" />
-    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\datepicker.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Image\background.jpg" />
+    <Content Include="Content\Image\Login.jpg" />
+    <Content Include="Content\Image\LoginAdmin.jpg" />
+    <Content Include="Content\Image\LoginJanitor.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\style.css" />
-    <Content Include="Models\JuJu2021.Context.tt">
+    <Content Include="Models\JuJuLocaldb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JuJu2021.edmx</DependentUpon>
-      <LastGenOutput>JuJu2021.Context.cs</LastGenOutput>
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
+      <LastGenOutput>JuJuLocaldb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\JuJu2021.tt">
+    <Content Include="Models\JuJuLocaldb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JuJu2021.edmx</DependentUpon>
-      <LastGenOutput>JuJu2021.cs</LastGenOutput>
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
+      <LastGenOutput>JuJuLocaldb.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Models\JuJu2021.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JuJu2021.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\JuJu2021.edmx.diagram">
-      <DependentUpon>JuJu2021.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\JuJuLocal.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
-      <LastGenOutput>JuJuLocal.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\JuJuLocal.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
-      <LastGenOutput>JuJuLocal.cs</LastGenOutput>
-    </Content>
-    <Content Include="Scripts\bootstrap-datetimepicker.js" />
-    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\datepicker.js" />
+    <Content Include="Scripts\datepicker.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\i18n\datepicker.cs.js" />
+    <Content Include="Scripts\i18n\datepicker.da.js" />
+    <Content Include="Scripts\i18n\datepicker.de.js" />
+    <Content Include="Scripts\i18n\datepicker.en.js" />
+    <Content Include="Scripts\i18n\datepicker.es.js" />
+    <Content Include="Scripts\i18n\datepicker.fi.js" />
+    <Content Include="Scripts\i18n\datepicker.fr.js" />
+    <Content Include="Scripts\i18n\datepicker.hu.js" />
+    <Content Include="Scripts\i18n\datepicker.nl.js" />
+    <Content Include="Scripts\i18n\datepicker.pl.js" />
+    <Content Include="Scripts\i18n\datepicker.pt-BR.js" />
+    <Content Include="Scripts\i18n\datepicker.pt.js" />
+    <Content Include="Scripts\i18n\datepicker.ro.js" />
+    <Content Include="Scripts\i18n\datepicker.sk.js" />
+    <Content Include="Scripts\i18n\datepicker.zh.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <EntityDeploy Include="Models\JuJuLocal.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JuJuLocal.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\JuJuLocal.edmx.diagram">
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -352,8 +355,6 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Content\_bootstrap-datetimepicker.less" />
-    <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -364,6 +365,15 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="待處理.txt" />
+    <EntityDeploy Include="Models\JuJuLocaldb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JuJuLocaldb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\JuJuLocaldb.edmx.diagram">
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -481,23 +491,14 @@
     <Content Include="Views\AdminHome\Index.cshtml" />
     <Content Include="Views\AdminMeeting\Create.cshtml" />
     <Content Include="Views\AdminMeeting\Delete.cshtml" />
-    <Content Include="Views\AdminMeeting\Details.cshtml" />
     <Content Include="Views\AdminMeeting\Edit.cshtml" />
     <Content Include="Views\AdminMeeting\Index.cshtml" />
-    <Content Include="Views\Complaints\Create.cshtml" />
-    <Content Include="Views\Complaints\Delete.cshtml" />
-    <Content Include="Views\Complaints\Details.cshtml" />
-    <Content Include="Views\Complaints\Edit.cshtml" />
-    <Content Include="Views\Complaints\Index.cshtml" />
     <Content Include="Views\AdminManagement\Create.cshtml" />
-    <Content Include="Views\AdminManagement\Delete.cshtml" />
-    <Content Include="Views\AdminManagement\Details.cshtml" />
     <Content Include="Views\AdminManagement\Edit.cshtml" />
     <Content Include="Views\AdminManagement\Index.cshtml" />
     <Content Include="Views\AdminManagement\DataJanitor.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
-    <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\ReturnOfGood\Create.cshtml" />
     <Content Include="Views\ReturnOfGood\Delete.cshtml" />
@@ -525,10 +526,13 @@
     <Content Include="Views\AdminHome\Create.cshtml" />
     <Content Include="Views\ReturnOfGood\Picked.cshtml" />
     <Content Include="Views\AdminManagement\EditJanitor.cshtml" />
+    <Content Include="Views\LoginManager\Login.cshtml" />
+    <Content Include="Views\LoginManager\LoginAdmin.cshtml" />
+    <Content Include="Views\LoginManager\LoginJanitor.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmpty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

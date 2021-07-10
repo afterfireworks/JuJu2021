@@ -162,59 +162,62 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AnnouncementsController.cs" />
+    <Compile Include="Controllers\CollectorsController.cs" />
     <Compile Include="Controllers\ComplaintsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
     <Compile Include="Controllers\PackagesController.cs" />
     <Compile Include="Controllers\ResidentsController.cs" />
     <Compile Include="Controllers\ReturnOfGoodsController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Announcement.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Chairman.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Collector.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Complaint.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Janitor.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JuJuLocal.Context.cs">
+    <Compile Include="Models\JuJuLocaldb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuJuLocal.Context.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JuJuLocal.cs">
+    <Compile Include="Models\JuJuLocaldb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JuJuLocal.Designer.cs">
+    <Compile Include="Models\JuJuLocaldb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Meeting.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MeetingDetails.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Package.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Resident.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReturnOfGoods.cs">
-      <DependentUpon>JuJuLocal.tt</DependentUpon>
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>JuJuLocaldb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -227,15 +230,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\JuJuLocal.Context.tt">
+    <Content Include="Models\JuJuLocaldb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>JuJuLocal.Context.cs</LastGenOutput>
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
+      <LastGenOutput>JuJuLocaldb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\JuJuLocal.tt">
+    <Content Include="Models\JuJuLocaldb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
-      <LastGenOutput>JuJuLocal.cs</LastGenOutput>
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
+      <LastGenOutput>JuJuLocaldb.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -258,12 +261,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\JuJuLocal.edmx">
+    <EntityDeploy Include="Models\JuJuLocaldb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JuJuLocal.Designer.cs</LastGenOutput>
+      <LastGenOutput>JuJuLocaldb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\JuJuLocal.edmx.diagram">
-      <DependentUpon>JuJuLocal.edmx</DependentUpon>
+    <Content Include="Models\JuJuLocaldb.edmx.diagram">
+      <DependentUpon>JuJuLocaldb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

@@ -20,7 +20,6 @@ namespace API.Models
             this.Chairman = new HashSet<Chairman>();
             this.Collector = new HashSet<Collector>();
             this.Complaint = new HashSet<Complaint>();
-            this.MeetingDetails = new HashSet<MeetingDetails>();
             this.Package = new HashSet<Package>();
             this.ReturnOfGoods = new HashSet<ReturnOfGoods>();
         }
@@ -40,8 +39,6 @@ namespace API.Models
         public virtual ICollection<Collector> Collector { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Complaint> Complaint { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MeetingDetails> MeetingDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Package> Package { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

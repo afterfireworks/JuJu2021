@@ -17,8 +17,9 @@ namespace API.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Chairman()
         {
-            this.Janitor = new HashSet<Janitor>();
             this.Announcement = new HashSet<Announcement>();
+            this.Janitor = new HashSet<Janitor>();
+            this.Meeting = new HashSet<Meeting>();
         }
     
         public string ChairmanAccount { get; set; }
@@ -26,10 +27,12 @@ namespace API.Models
         public string Password { get; set; }
         public bool Working { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Announcement> Announcement { get; set; }
         public virtual Resident Resident { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Janitor> Janitor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Announcement> Announcement { get; set; }
+        public virtual ICollection<Meeting> Meeting { get; set; }
     }
 }

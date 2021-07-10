@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JuJuLocaldbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ChairmanAccount" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="800" Nullable="false" />
+          <Property Name="Picture" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Chairman">
+          <Key>
+            <PropertyRef Name="ChairmanAccount" />
+          </Key>
+          <Property Name="ChairmanAccount" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Working" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collector">
+          <Key>
+            <PropertyRef Name="SN" />
+          </Key>
+          <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="800" Nullable="false" />
+          <Property Name="Solved" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Janitor">
+          <Key>
+            <PropertyRef Name="JanitorAccount" />
+          </Key>
+          <Property Name="JanitorAccount" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ChairmanAccount" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="SN" />
+          </Key>
+          <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChairmanAccount" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="2083" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ArrivalDate" Type="datetime" Nullable="false" />
+          <Property Name="Sign" Type="bit" Nullable="false" />
+          <Property Name="SignDate" Type="datetime" />
+          <Property Name="COD" Type="bit" Nullable="false" />
+          <Property Name="Signer" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Resident">
+          <Key>
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Committee" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReturnOfGoods">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="SN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReceiptDate" Type="datetime" />
+          <Property Name="LogisticsCompany" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sign" Type="bit" Nullable="false" />
+          <Property Name="CourierSign" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Announcem__Chair__02FC7413">
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chairman">
+              <PropertyRef Name="ChairmanAccount" />
+            </Principal>
+            <Dependent Role="Announcement">
+              <PropertyRef Name="ChairmanAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Chairman__Accoun__4BAC3F29">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Chairman">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collector__Accou__0880433F">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Collector" Type="Self.Collector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Collector">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--產生期間發現錯誤:
+警告 6035: 關聯性 'FK__Collector__ID__09746778' 在主要端上，有不屬於資料表索引鍵的資料行。已排除此關聯性。
+        <Association Name="FK__Collector__ID__09746778" />-->
+        <Association Name="FK__Complaint__Accou__403A8C7D">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Janitor__Chairma__4E88ABD4">
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Janitor" Type="Self.Janitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chairman">
+              <PropertyRef Name="ChairmanAccount" />
+            </Principal>
+            <Dependent Role="Janitor">
+              <PropertyRef Name="ChairmanAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meeting__Chairma__0D44F85C">
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chairman">
+              <PropertyRef Name="ChairmanAccount" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="ChairmanAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Package__Account__398D8EEE">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReturnOfG__Accou__4316F928">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReturnOfGoods" Type="Self.ReturnOfGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="ReturnOfGoods">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JuJuLocaldbModelStoreContainer">
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chairman" EntityType="Self.Chairman" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Collector" EntityType="Self.Collector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complaint" EntityType="Self.Complaint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Janitor" EntityType="Self.Janitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resident" EntityType="Self.Resident" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReturnOfGoods" EntityType="Self.ReturnOfGoods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Announcem__Chair__02FC7413" Association="Self.FK__Announcem__Chair__02FC7413">
+            <End Role="Chairman" EntitySet="Chairman" />
+            <End Role="Announcement" EntitySet="Announcement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Chairman__Accoun__4BAC3F29" Association="Self.FK__Chairman__Accoun__4BAC3F29">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Chairman" EntitySet="Chairman" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collector__Accou__0880433F" Association="Self.FK__Collector__Accou__0880433F">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Collector" EntitySet="Collector" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Accou__403A8C7D" Association="Self.FK__Complaint__Accou__403A8C7D">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Janitor__Chairma__4E88ABD4" Association="Self.FK__Janitor__Chairma__4E88ABD4">
+            <End Role="Chairman" EntitySet="Chairman" />
+            <End Role="Janitor" EntitySet="Janitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meeting__Chairma__0D44F85C" Association="Self.FK__Meeting__Chairma__0D44F85C">
+            <End Role="Chairman" EntitySet="Chairman" />
+            <End Role="Meeting" EntitySet="Meeting" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Package__Account__398D8EEE" Association="Self.FK__Package__Account__398D8EEE">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReturnOfG__Accou__4316F928" Association="Self.FK__ReturnOfG__Accou__4316F928">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="ReturnOfGoods" EntitySet="ReturnOfGoods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JuJuLocaldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChairmanAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="800" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Chairman" Relationship="Self.FK__Announcem__Chair__02FC7413" FromRole="Announcement" ToRole="Chairman" />
+        </EntityType>
+        <EntityType Name="Chairman">
+          <Key>
+            <PropertyRef Name="ChairmanAccount" />
+          </Key>
+          <Property Name="ChairmanAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Working" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Announcement" Relationship="Self.FK__Announcem__Chair__02FC7413" FromRole="Chairman" ToRole="Announcement" />
+          <NavigationProperty Name="Resident" Relationship="Self.FK__Chairman__Accoun__4BAC3F29" FromRole="Chairman" ToRole="Resident" />
+          <NavigationProperty Name="Janitor" Relationship="Self.FK__Janitor__Chairma__4E88ABD4" FromRole="Chairman" ToRole="Janitor" />
+          <NavigationProperty Name="Meeting" Relationship="Self.FK__Meeting__Chairma__0D44F85C" FromRole="Chairman" ToRole="Meeting" />
+        </EntityType>
+        <EntityType Name="Collector">
+          <Key>
+            <PropertyRef Name="SN" />
+          </Key>
+          <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Resident" Relationship="Self.FK__Collector__Accou__0880433F" FromRole="Collector" ToRole="Resident" />
+        </EntityType>
+        <EntityType Name="Complaint">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="800" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Solved" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Resident" Relationship="Self.FK__Complaint__Accou__403A8C7D" FromRole="Complaint" ToRole="Resident" />
+        </EntityType>
+        <EntityType Name="Janitor">
+          <Key>
+            <PropertyRef Name="JanitorAccount" />
+          </Key>
+          <Property Name="JanitorAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChairmanAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Chairman" Relationship="Self.FK__Janitor__Chairma__4E88ABD4" FromRole="Janitor" ToRole="Chairman" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="SN" />
+          </Key>
+          <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChairmanAccount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="2083" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Chairman" Relationship="Self.FK__Meeting__Chairma__0D44F85C" FromRole="Meeting" ToRole="Chairman" />
+        </EntityType>
+        <EntityType Name="Package">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sign" Type="Boolean" Nullable="false" />
+          <Property Name="SignDate" Type="DateTime" Precision="3" />
+          <Property Name="COD" Type="Boolean" Nullable="false" />
+          <Property Name="Signer" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resident" Relationship="Self.FK__Package__Account__398D8EEE" FromRole="Package" ToRole="Resident" />
+        </EntityType>
+        <EntityType Name="Resident">
+          <Key>
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Committee" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Chairman" Relationship="Self.FK__Chairman__Accoun__4BAC3F29" FromRole="Resident" ToRole="Chairman" />
+          <NavigationProperty Name="Collector" Relationship="Self.FK__Collector__Accou__0880433F" FromRole="Resident" ToRole="Collector" />
+          <NavigationProperty Name="Complaint" Relationship="Self.FK__Complaint__Accou__403A8C7D" FromRole="Resident" ToRole="Complaint" />
+          <NavigationProperty Name="Package" Relationship="Self.FK__Package__Account__398D8EEE" FromRole="Resident" ToRole="Package" />
+          <NavigationProperty Name="ReturnOfGoods" Relationship="Self.FK__ReturnOfG__Accou__4316F928" FromRole="Resident" ToRole="ReturnOfGoods" />
+        </EntityType>
+        <EntityType Name="ReturnOfGoods">
+          <Key>
+            <PropertyRef Name="SN" />
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="SN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="LogisticsCompany" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Sign" Type="Boolean" Nullable="false" />
+          <Property Name="CourierSign" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Resident" Relationship="Self.FK__ReturnOfG__Accou__4316F928" FromRole="ReturnOfGoods" ToRole="Resident" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Announcem__Chair__02FC7413">
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Announcement" Type="Self.Announcement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chairman">
+              <PropertyRef Name="ChairmanAccount" />
+            </Principal>
+            <Dependent Role="Announcement">
+              <PropertyRef Name="ChairmanAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Chairman__Accoun__4BAC3F29">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Chairman">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Janitor__Chairma__4E88ABD4">
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Janitor" Type="Self.Janitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chairman">
+              <PropertyRef Name="ChairmanAccount" />
+            </Principal>
+            <Dependent Role="Janitor">
+              <PropertyRef Name="ChairmanAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meeting__Chairma__0D44F85C">
+          <End Role="Chairman" Type="Self.Chairman" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chairman">
+              <PropertyRef Name="ChairmanAccount" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="ChairmanAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Collector__Accou__0880433F">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Collector" Type="Self.Collector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Collector">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Complaint__Accou__403A8C7D">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Complaint" Type="Self.Complaint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Complaint">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Package__Account__398D8EEE">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Package" Type="Self.Package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Package">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReturnOfG__Accou__4316F928">
+          <End Role="Resident" Type="Self.Resident" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReturnOfGoods" Type="Self.ReturnOfGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resident">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="ReturnOfGoods">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JuJuLocaldbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Announcement" EntityType="Self.Announcement" />
+          <EntitySet Name="Chairman" EntityType="Self.Chairman" />
+          <EntitySet Name="Collector" EntityType="Self.Collector" />
+          <EntitySet Name="Complaint" EntityType="Self.Complaint" />
+          <EntitySet Name="Janitor" EntityType="Self.Janitor" />
+          <EntitySet Name="Meeting" EntityType="Self.Meeting" />
+          <EntitySet Name="Package" EntityType="Self.Package" />
+          <EntitySet Name="Resident" EntityType="Self.Resident" />
+          <EntitySet Name="ReturnOfGoods" EntityType="Self.ReturnOfGoods" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK__Announcem__Chair__02FC7413" Association="Self.FK__Announcem__Chair__02FC7413">
+            <End Role="Chairman" EntitySet="Chairman" />
+            <End Role="Announcement" EntitySet="Announcement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Chairman__Accoun__4BAC3F29" Association="Self.FK__Chairman__Accoun__4BAC3F29">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Chairman" EntitySet="Chairman" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Janitor__Chairma__4E88ABD4" Association="Self.FK__Janitor__Chairma__4E88ABD4">
+            <End Role="Chairman" EntitySet="Chairman" />
+            <End Role="Janitor" EntitySet="Janitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meeting__Chairma__0D44F85C" Association="Self.FK__Meeting__Chairma__0D44F85C">
+            <End Role="Chairman" EntitySet="Chairman" />
+            <End Role="Meeting" EntitySet="Meeting" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Collector__Accou__0880433F" Association="Self.FK__Collector__Accou__0880433F">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Collector" EntitySet="Collector" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Complaint__Accou__403A8C7D" Association="Self.FK__Complaint__Accou__403A8C7D">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Complaint" EntitySet="Complaint" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Package__Account__398D8EEE" Association="Self.FK__Package__Account__398D8EEE">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="Package" EntitySet="Package" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReturnOfG__Accou__4316F928" Association="Self.FK__ReturnOfG__Accou__4316F928">
+            <End Role="Resident" EntitySet="Resident" />
+            <End Role="ReturnOfGoods" EntitySet="ReturnOfGoods" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JuJuLocaldbModelStoreContainer" CdmEntityContainer="JuJuLocaldbEntities">
+          <EntitySetMapping Name="Announcement">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcement">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chairman">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Chairman">
+              <MappingFragment StoreEntitySet="Chairman">
+                <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Working" ColumnName="Working" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collector">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Collector">
+              <MappingFragment StoreEntitySet="Collector">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complaint">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Complaint">
+              <MappingFragment StoreEntitySet="Complaint">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Solved" ColumnName="Solved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Janitor">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Janitor">
+              <MappingFragment StoreEntitySet="Janitor">
+                <ScalarProperty Name="JanitorAccount" ColumnName="JanitorAccount" />
+                <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meeting">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Meeting">
+              <MappingFragment StoreEntitySet="Meeting">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Package">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Package">
+              <MappingFragment StoreEntitySet="Package">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+                <ScalarProperty Name="SignDate" ColumnName="SignDate" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="Signer" ColumnName="Signer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resident">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.Resident">
+              <MappingFragment StoreEntitySet="Resident">
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Committee" ColumnName="Committee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReturnOfGoods">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.ReturnOfGoods">
+              <MappingFragment StoreEntitySet="ReturnOfGoods">
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+                <ScalarProperty Name="LogisticsCompany" ColumnName="LogisticsCompany" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+                <ScalarProperty Name="CourierSign" ColumnName="CourierSign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="JuJuLocaldbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

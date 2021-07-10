@@ -1,33 +1,39 @@
 ﻿@model IEnumerable<MainSite.Models.Resident>
+@using PagedList;
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "住戶管理";
 }
 
+<div class="indexContent">
 <h2>社區住戶列表</h2>
 
 @*<p>
         @Html.ActionLink("住戶查詢", "Index", new {  })
     </p>*@
 
-    @using (Html.BeginForm("Serch", "Resident", FormMethod.Get))
-    {
-<form>
-    <div class="form-group">
-        <b>搜尋設定 :</b><br>
-        @Html.RadioButton("option", "all") <text>全部列表</text>
-        @Html.RadioButton("option", "id") <text>身分證字號</text>
-        @Html.RadioButton("option", "account") <text> 住戶帳號 </text>
-        @Html.RadioButton("option", "name") <text>姓名</text>
-    </div>
-    <div class="form-group">
-        @Html.TextBox("search")
-        <input type="submit" name="submit" value="Search" class="" />
-    </div>
-</form>
-    }
+@using (Html.BeginForm("Serch", "Resident", FormMethod.Get))
+{
+    <form>
+        <div class="form-group">
+            @Html.RadioButton("option", "all")
+            <text>全部列表</text>
+            @Html.RadioButton("option", "id")
+            <text>身分證字號</text>
+            @Html.RadioButton("option", "account")
+            <text> 住戶帳號 </text>
+            @Html.RadioButton("option", "name")
+            <text>姓名</text>
+        </div>
+        <div class="form-group form-inline">
+            @Html.TextBox("search", "", "", new { @class = "input-group input-group-sm" })
+            <input type="submit" name="submit" value="搜尋" class="btn btn-sm btn-outline-success" />
+        </div>
+    </form>
+}
 
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Account)
@@ -41,7 +47,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Tel)
         </th>
-        <th>
+        <th style="width:40%;">
             @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
@@ -66,7 +72,7 @@
             <td class="align-middle">
                 @Html.DisplayFor(modelItem => item.Tel)
             </td>
-            <td class="align-middle">
+            <td class="align-middle" style="width:40%;">
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
@@ -78,7 +84,7 @@
                     else
                     {
                         @*<a href="/display/@item.Photo">*@
-                            <img src="@Url.Action("GetImage", "Resident", new { account = item.Account })" class="card-img-top img-thumbnail img" />
+                        <img src="@Url.Action("GetImage", "Resident", new { account = item.Account })" class="card-img-top img-thumbnail img" />
                         @*</a>*@
                     }
                 </div>
@@ -90,6 +96,17 @@
     }
 
 </table>
+</div>
+
+@*@Html.Partial("Resident", Model)*@
+<div class="text-center ">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>
+
+
+
+
+
 @section partialcss{
     <style>
         .img {

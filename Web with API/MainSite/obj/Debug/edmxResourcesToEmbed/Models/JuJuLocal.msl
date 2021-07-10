@@ -39,26 +39,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Meeting">
-      <EntityTypeMapping TypeName="JuJuLocalModel.Meeting">
-        <MappingFragment StoreEntitySet="Meeting">
-          <ScalarProperty Name="URL" ColumnName="URL" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="SN" ColumnName="SN" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MeetingDetails">
-      <EntityTypeMapping TypeName="JuJuLocalModel.MeetingDetails">
-        <MappingFragment StoreEntitySet="MeetingDetails">
-          <ScalarProperty Name="SN" ColumnName="SN" />
-          <ScalarProperty Name="Account" ColumnName="Account" />
-          <ScalarProperty Name="URL" ColumnName="URL" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Package">
       <EntityTypeMapping TypeName="JuJuLocalModel.Package">
         <MappingFragment StoreEntitySet="Package">
@@ -108,6 +88,29 @@
           <ScalarProperty Name="ChairmanAccount" ColumnName="ChairmanAccount" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="SN" ColumnName="SN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meeting">
+      <EntityTypeMapping TypeName="JuJuLocalModel.Meeting">
+        <MappingFragment StoreEntitySet="Meeting">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="SN" ColumnName="SN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="JuJuLocalModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

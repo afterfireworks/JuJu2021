@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,149 +15,176 @@ namespace API.Controllers
 {
     public class PackagesController : ApiController
     {
-        private JuJuLocalApiEntities db = new JuJuLocalApiEntities();
+        JuJuLocaldbEntities db = new JuJuLocaldbEntities();
 
         // GET: api/Packages
-        public IQueryable<Package> GetPackage()
-        {
-            return db.Package;
-        }
+        //public IQueryable<Package> GetPackage()
+        //{
+        //    return db.Package;
+        //}
 
         // GET: api/Packages/5
-        [ResponseType(typeof(Package))]
-        public IHttpActionResult GetPackage(string userAccount)
+        [HttpGet]
+        public ArrayList GetPackage(string userAccount)
         {
-            var package = db.Package.Where(p=>p.Account== userAccount).ToList();
-            if (package == null)
+            ArrayList PackagesData = new ArrayList();
+            try
             {
-                return NotFound();
-            }
+                var data = db.Package.Where(p => p.Account == userAccount).ToList();
 
-            return Ok(package);
+                if (data != null)
+                {
+                    foreach (var item in data)
+                    {
+                        var collector = db.Resident.Where(r => r.ID == item.Signer).FirstOrDefault();
+                        
+                        //object Account = userAccount;
+                        object SN = item.SN;
+                        object ArrivalDate = item.ArrivalDate;
+                        object Sign = item.Sign ? "包裹已領取" : "包裹未領取";
+                        object Signer;
+
+                        if (collector != null)
+                        {
+                            Signer = collector.Name;
+                        }
+                        else { Signer = item.Signer; }
+
+                        object SignDate = item.SignDate;
+                        object COD = item.COD;
+
+                        Object PackageRow = new { SN, ArrivalDate, Sign, Signer, SignDate, COD };
+                        PackagesData.Add(PackageRow);
+                    }
+
+                    //object errorMessages = "Success";
+                    //Object ErrorMessages = new { errorMessages };
+                    //CollectorData.Add(info);
+                }
+
+                else
+                {
+                    object errorMessages = "Error";
+                    Object ErrorMessages = new { errorMessages };
+                    PackagesData.Add(ErrorMessages);
+                }
+            }
+            catch
+            { }
+
+            return PackagesData;
         }
 
-        [ResponseType(typeof(Package))]
-        public IHttpActionResult GetPackage(bool picked)
-        {
-            var package = db.Package.Where(p => p.Sign == picked).ToList();
-            if (package == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(package);
-        }
-
-        [ResponseType(typeof(Package))]
-        public IHttpActionResult GetPackage(DateTime date)
-        {
-            var package = db.Package.Where(p => p.ArrivalDate == date).ToList();
-            if (package == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(package);
-        }
-
-        //[ResponseType(typeof(void))]
-        //public IHttpActionResult PickPackage(long sn, string person, string picker)
+        //[ResponseType(typeof(Package))]
+        //public IHttpActionResult GetPackage(DateTime date)
         //{
-        //    var thisPackage = db.Package.Where(p => p.SN == sn).FirstOrDefault();
-        //    var canPicker = db.Collector.Where(c => c.Account == person).FirstOrDefault().ID;
-
-        //    Package pakeage = new Package();
-
-        //    if (thisPackage.Account != picker && canPicker != picker)
+        //    var package = db.Package.Where(p => p.ArrivalDate == date).ToList();
+        //    if (package == null)
         //    {
-        //        //之後改自訂頁面
-                
+        //        return NotFound();
         //    }
-        //    else
-        //    {
-        //        pakeage.SN = thisPackage.SN;
-        //        pakeage.Account = thisPackage.Account;
-        //        pakeage.ArrivalDate = thisPackage.ArrivalDate;
-        //        pakeage.Sign = true;
-        //        pakeage.SignDate = thisPackage.SignDate;
-        //        pakeage.COD = thisPackage.COD;
-        //        pakeage.Signer = picker;
 
-        //        db.Package.Add(pakeage);
-        //        db.SaveChanges();
-
-        //        //之後改自訂頁面
-                
-        //    }
+        //    return Ok(package);
         //}
+
+        [HttpGet] //ok 穆
+        [ResponseType(typeof(bool))]
+        public IHttpActionResult PickPackage(long sn, string userAccount, string recipient)
+        {
+            var thisPackage = db.Package.Where(p => p.SN == sn).FirstOrDefault();
+            var canPicker = db.Collector.Where(c => c.Account == userAccount).ToList();
+            var pickmanID = db.Resident.Find(recipient).ID;
+            bool isSigned = false;
+            DateTime TimeNow = DateTime.Now;
+
+            if (thisPackage.Account != recipient && canPicker.Where(c => c.ID == pickmanID).FirstOrDefault()==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                thisPackage.SN = thisPackage.SN;
+                thisPackage.Account = thisPackage.Account;
+                thisPackage.ArrivalDate = thisPackage.ArrivalDate;
+                thisPackage.Sign = true;
+                thisPackage.SignDate = TimeNow;
+                thisPackage.COD = thisPackage.COD;
+                thisPackage.Signer = pickmanID;
+
+                db.Entry(thisPackage).State = EntityState.Modified;
+                db.SaveChanges();
+                isSigned = true;
+            }
+            return Ok(isSigned);
+        }
 
         ////////////////////////////////////////使用者只須抓取資料 ////////////////////////////////////////
 
-            // PUT: api/Packages/5
-            //[ResponseType(typeof(void))]
-            //public IHttpActionResult PutPackage(long id, Package package)
-            //{
-            //    if (!ModelState.IsValid)
-            //    {
-            //        return BadRequest(ModelState);
-            //    }
+        // PUT: api/Packages/5
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutPackage(long id, Package package)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            //    if (id != package.SN)
-            //    {
-            //        return BadRequest();
-            //    }
+        //    if (id != package.SN)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            //    db.Entry(package).State = EntityState.Modified;
+        //    db.Entry(package).State = EntityState.Modified;
 
-            //    try
-            //    {
-            //        db.SaveChanges();
-            //    }
-            //    catch (DbUpdateConcurrencyException)
-            //    {
-            //        if (!PackageExists(id))
-            //        {
-            //            return NotFound();
-            //        }
-            //        else
-            //        {
-            //            throw;
-            //        }
-            //    }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!PackageExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            //    return StatusCode(HttpStatusCode.NoContent);
-            //}
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-            // POST: api/Packages
-            //[ResponseType(typeof(Package))]
-            //public IHttpActionResult PostPackage(Package package)
-            //{
-            //    if (!ModelState.IsValid)
-            //    {
-            //        return BadRequest(ModelState);
-            //    }
+        // POST: api/Packages
+        //[ResponseType(typeof(Package))]
+        //public IHttpActionResult PostPackage(Package package)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            //    db.Package.Add(package);
-            //    db.SaveChanges();
+        //    db.Package.Add(package);
+        //    db.SaveChanges();
 
-            //    return CreatedAtRoute("DefaultApi", new { id = package.SN }, package);
-            //}
+        //    return CreatedAtRoute("DefaultApi", new { id = package.SN }, package);
+        //}
 
-            // DELETE: api/Packages/5
-            //[ResponseType(typeof(Package))]
-            //public IHttpActionResult DeletePackage(long id)
-            //{
-            //    Package package = db.Package.Find(id);
-            //    if (package == null)
-            //    {
-            //        return NotFound();
-            //    }
+        // DELETE: api/Packages/5
+        //[ResponseType(typeof(Package))]
+        //public IHttpActionResult DeletePackage(long id)
+        //{
+        //    Package package = db.Package.Find(id);
+        //    if (package == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            //    db.Package.Remove(package);
-            //    db.SaveChanges();
+        //    db.Package.Remove(package);
+        //    db.SaveChanges();
 
-            //    return Ok(package);
-            //}
+        //    return Ok(package);
+        //}
 
         protected override void Dispose(bool disposing)
         {

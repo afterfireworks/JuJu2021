@@ -1,94 +1,108 @@
 ﻿@model MainSite.Models.Resident
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "修改住戶";
 }
 
-<h2>編輯住戶資料</h2>
+<h2 class="text-center">編輯住戶資料</h2>
+<div class="bgdetail-long" style="overflow-y: auto;">
+    <form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data" class="customFrom">
+        @*@using (Html.BeginForm())
+            {*@
+        @Html.AntiForgeryToken()
 
-<form action="@Url.Action("Edit")" method="post" enctype="multipart/form-data">
-    @*@using (Html.BeginForm())
-        {*@
-    @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Account)
 
-    <div class="form-horizontal">
-        <h4>Resident</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Account)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input id="File1" name="image" type="file" accept="image/*" class="form-control" />
-                @*@Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Committee, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Committee)
-                    @Html.ValidationMessageFor(model => model.Committee, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Committee, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Committee)
+                        @Html.ValidationMessageFor(model => model.Committee, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label" })
+                <div class="col-md-12">
+                    <div>
+                        @if (this.Model.Photo == null)
+                        {
+                        <span>無附件</span>
+                        }
+                        else
+                        {
+                        <img src="@Url.Action("GetImage", "AdminResident", new { Account = this.Model.Account })" class="card-img-top img-thumbnail img" />
+                        }
+                    </div>
+                    <p>上傳新檔案 ?</p>
+                    <input id="File1" name="image" type="file" accept="image/*" class="form-control btn" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="btns">
+                    @Html.ActionLink("返回住戶列表", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
+                    <input type="submit" value="確認" class="btn btn-sm btn-outline-dark ml-5" />
                 </div>
             </div>
         </div>
+        @*}*@
+    </form>
+</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="儲存變更" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-    @*}*@
-</form>
-
-    <div>
-        @Html.ActionLink("返回住戶列表", "Index")
-    </div>
-
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+@section partialcss{
+    <style>
+        .img {
+            width: 500px;
+            height: auto;
+        }
+    </style>
+}

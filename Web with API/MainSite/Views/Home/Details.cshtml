@@ -4,54 +4,73 @@
     ViewBag.Title = "Details";
 }
 
-<h2>包裹狀態</h2>
+<h2 class="text-center">包裹狀態管理</h2>
+<div class="bgdetail">
+    <div class="customFrom">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Resident.Name)
+            </dt>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ArrivalDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Resident.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ArrivalDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ArrivalDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sign)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ArrivalDate)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Sign)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COD)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SignDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COD)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SignDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Sign)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COD)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sign)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COD)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SignDate)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Resident.Password)
-        </dt>
+            <dd>
+                @{
+                if(this.Model.SignDate==null)
+                {<span>未被領取</span>
+                }
+                else {@Html.DisplayFor(model => model.SignDate)}
+                }
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Resident.Password)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Signer)
+            </dt>
 
-    </dl>
+            <dd>
+                @{
+                if(this.Model.Signer==null)
+                {<span>未被領取</span>
+                }
+                else {@Html.DisplayFor(model => model.Signer)}
+                }
+            </dd>
+
+        </dl>
+        <div class="form-group">
+            <div class="btn-f-c">
+                @Html.ActionLink("返回包裹列表", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("編輯", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("返回包裹管理", "Index")
-</p>

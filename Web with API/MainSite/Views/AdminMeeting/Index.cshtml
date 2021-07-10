@@ -1,51 +1,64 @@
 ﻿@model IEnumerable<MainSite.Models.Meeting>
+@using PagedList;
+@using PagedList.Mvc;
 
-@{
-    ViewBag.Title = "Index";
+ @{
+  ViewBag.Title = "會議紀錄";
+ }
+
+<div class="indexContent">
+    <h4>社區會議紀錄</h4>
+    <p>
+        @Html.ActionLink("新增會議紀錄", "Create","",new { @class = "btn btn-sm btn-outline-success" })
+    </p>
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th style="width:40%;">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChairmanAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.URL)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+        <tr>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td class="align-middle" style="width:40%;">
+                @if (item.Title.Length <= 15)
+                {
+                    @Html.DisplayFor(modelItem => item.Title)
+                }
+                else
+                {
+                    @(item.Title.ToString().Substring(0, 15) + " ...")
+                }
+            </td>
+            <td class="align-middle">
+                @Html.DisplayFor(modelItem => item.Chairman.Resident.Name)
+            </td>
+            <td class="align-middle">
+                <a href="@Html.DisplayFor(modelItem => item.URL)" class="btn btn-sm btn-outline-dark" target="_blank">前往觀看</a>
+            </td>
+            <td class="align-middle">
+                @Html.ActionLink("修改", "Edit", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-primary" })
+                @Html.ActionLink("刪除", "Delete", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-danger" })
+            </td>
+        </tr>
 }
 
-<h4>社區會議紀錄</h4>
-<p>
-    @Html.ActionLink("新增會議紀錄", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.URL)
-        </th>
-
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-<tr>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Date)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td class="align-middle">
-        @Html.DisplayFor(modelItem => item.Description)
-    </td>
-    <td class="align-middle">
-        <a href="@Html.DisplayFor(modelItem => item.URL)" class="btn btn-sm btn-outline-dark" target="_blank">前往觀看</a>
-    </td>
-    <td class="align-middle">
-        @Html.ActionLink("編輯", "Edit", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-dark" }) 
-        @Html.ActionLink("詳細", "Details", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-dark" }) 
-        @Html.ActionLink("刪除", "Delete", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-dark" })
-    </td>
-</tr>
-}
-
-</table>
+    </table>
+</div>
+    <div class="text-center">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+    </div>

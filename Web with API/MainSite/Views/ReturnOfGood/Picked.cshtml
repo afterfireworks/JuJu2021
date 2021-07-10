@@ -1,49 +1,81 @@
 ﻿@model IEnumerable<MainSite.Models.ReturnOfGoods>
+@using PagedList;
+@using PagedList.Mvc;
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Resident.Account)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sign)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReceiptDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LogisticsCompany)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourierSign)
-        </th>
-        <th></th>
-    </tr>
+<div class="indexContent">
+    <h2>退貨包裹管理</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Resident.Account)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sign)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReceiptDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LogisticsCompany)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourierSign)
-        </td>
-        
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
-            @Html.ActionLink("明細", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" }) 
-            @Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
-        </td>
-    </tr>
+    <p>
+        @Html.ActionLink("待退包裹", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
+    </p>
+    <h5>已退貨包裹列表</h5>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Resident.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sign)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiptDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogisticsCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourierSign)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resident.Account)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sign)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogisticsCompany)
+            </td>
+            <td class="align-middle">
+                @if (item.CourierSign == null)
+                    {
+                <span>無簽名</span>
+                    }
+                    else
+                    {
+                @*<a href="/display/@item.Photo">*@
+                <img src="@Url.Action("GetImage", "ReturnOfGood", new { sn =item.SN, account = item.Account})" class="card-img-top img-thumbnail img" />
+                @*</a>*@
+                    }
+            </td>
+
+            <td>
+                @Html.ActionLink("詳細資料", "Details", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-dark" })
+                @Html.ActionLink("修改", "Edit", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-primary" })
+                @*@Html.ActionLink("刪除", "Delete", new { sn = item.SN, account = item.Account }, new { @class = "btn btn-sm btn-outline-danger" })*@
+            </td>
+        </tr>
+        }
+
+    </table>
+</div>
+<div class="text-center">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Picked", new { page }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+</div>
+
+@section partialcss{
+    <style>
+        .img {
+            max-height: 60px;
+            width: auto;
+        }
+    </style>
 }
-
-</table>
