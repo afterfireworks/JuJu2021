@@ -145,8 +145,9 @@ namespace MainSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "ChairmanAccount", janitor.ChairmanAccount);
-            return View(janitor);
+            ViewBag.ChairmanAccount = new SelectList(db.Chairman, "ChairmanAccount", "ChairmanAccount", janitor.ChairmanAccount);//跟這句無關
+            return View("Index");
+            //return RedirectToAction("Index");
         }
 
         public ActionResult EditJanitor(string janitorAccount)

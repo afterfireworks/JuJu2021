@@ -15,7 +15,7 @@ function ReturnOfGoodsScreen({ navigation }) {
   useEffect(() => {
     let repeat;
     async function axiosData() {
-        await axios.get(`ReturnOfGoods?userAccount=${Constants.userAccount}`)
+        await axios.get(`Api_ReturnOfGoods?userAccount=${Constants.userAccount}`)
             .then(function (response) {
                 setDATA(response.data);
                 // console.log(response.data);
@@ -64,8 +64,8 @@ function ReturnOfGoodsScreen({ navigation }) {
                  )}
               >
             <Text>收貨狀態 : {item.Sign}</Text> 
-            <Text>收貨日 : {item.ReceiptDate.replace("T", ' ')}</Text>
-            <Text>簽名 : {item.CourierSign}</Text>
+            <Text>收貨日 : {item.ReceiptDate!=null?item.ReceiptDate.replace("T", ' '):"未收取"}</Text>
+            <Text>簽名 : {item.CourierSign!=null?"已收取":"未收取"}</Text>
             </Card>
           }
           /> 

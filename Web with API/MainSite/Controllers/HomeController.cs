@@ -32,6 +32,15 @@ namespace MainSite.Controllers
         public ActionResult Picked(int page = 1)
         {
             var Package = db.Package.Where(p => p.Sign == true).ToList();
+
+            foreach (var item in Package)
+            {
+                if (item.Signer != null)
+                {
+                    item.Signer = db.Resident.Where(r => r.Account == item.Signer).FirstOrDefault().Name;
+                }
+            };
+
             int pageSize = 9;
             int currentPage = page < 1 ? 1 : page;
             var pagedCust = Package.ToPagedList(currentPage, pageSize);
@@ -91,7 +100,7 @@ namespace MainSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", package.Account);
+            ViewBag.ID = new SelectList(db.Resident, "Account", "Name", db.Resident);
             return View(package);
         }
 
@@ -107,7 +116,7 @@ namespace MainSite.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", package.Account);
+            ViewBag.Signer = new SelectList(db.Resident, "Account", "Name", db.Resident);
             return View(package);
         }
 
@@ -124,7 +133,7 @@ namespace MainSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Name", package.Account);
+            ViewBag.Signer = new SelectList(db.Resident, "Account", "Name", db.Resident);
             return View(package);
         }
 

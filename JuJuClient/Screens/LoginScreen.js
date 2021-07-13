@@ -91,7 +91,7 @@ function LoginScreen({navigation}) {
 
     async function axiosData (Account, Password) {
       await axios
-        .get ('UserLogin?LoginAccount=' + Account + '&LoginPassword=' + Password)
+        .get ('Api_UserLogin?LoginAccount=' + Account + '&LoginPassword=' + Password)
         .then (function (response) {
           if (response.data[0].isLogin == 1) {
             // console.log(response.data[0])

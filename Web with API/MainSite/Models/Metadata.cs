@@ -153,9 +153,6 @@ namespace MainSite.Models
             [Required]
             public string ID { get; set; }
 
-            internal string AccountName { get; set; }
-            internal string IDName { get; set; }
-
         }
     }
 
@@ -177,12 +174,12 @@ namespace MainSite.Models
 
         [DisplayName("標題")]
         [Required]
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string Title { get; set; }
 
         [DisplayName("內容")]
         [Required]
-        [StringLength(300)]
+        [StringLength(500)]
         public string Description { get; set; }
 
         [DisplayName("處理狀態")]

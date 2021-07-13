@@ -9,6 +9,8 @@ namespace MainSite.ViewModels
 {
     public class VmCollector
     {
+        public long SN { get; set; }
+
         [DisplayName("本人帳號")]
         public string Account { get; set; }
 
@@ -20,5 +22,7 @@ namespace MainSite.ViewModels
 
         [DisplayName("代收人")]
         public string IDName { get; set; }
+
+        
     }
 }

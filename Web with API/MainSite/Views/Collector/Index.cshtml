@@ -9,7 +9,7 @@
 
 <div class="indexContent">
     <h2>代收人設定與管理</h2>
-    @using (Html.BeginForm("Serch", "Collector", FormMethod.Get))
+    @using (Html.BeginForm("Search", "Collector", FormMethod.Get))
     {
         <form>
             <div class="form-group">
@@ -57,7 +57,7 @@
         </td>*@
         <td class="align-middle">
             @*@Html.ActionLink("詳細資料", "Details", new { account = item.Account, id = item.ID }) |*@
-            @Html.ActionLink("修改", "Edit", new { account = item.Account, id = item.ID }, new { @class = "btn btn-sm btn-outline-primary" })
+            @*@Html.ActionLink("修改", "Edit", new { sn = item.SN }, new { @class = "btn btn-sm btn-outline-primary" })*@
             @Html.ActionLink("刪除", "Delete", new { account = item.Account, id = item.ID }, new { @class = "btn btn-sm btn-outline-danger" })
         </td>
     </tr>

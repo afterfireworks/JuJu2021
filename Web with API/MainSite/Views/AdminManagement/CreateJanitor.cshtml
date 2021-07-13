@@ -7,10 +7,9 @@
 <h2 class="text-center">新增管理員</h2>
 
 <div class="bgdetail">
-    @*@using (Html.BeginForm())
-        {*@
-
-    <form action="@Url.Action("Create")" method="post" enctype="multipart/form-data" class="customFrom">
+    @using (Html.BeginForm())
+        {
+    @*<form action="@Url.Action("Create")" method="post" enctype="multipart/form-data" class="customFrom">*@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
@@ -43,13 +42,13 @@
 
             <div class="form-group">
                 <div class="btns">
-                    @Html.ActionLink("返回公告列表", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
+                    @Html.ActionLink("返回權限列表", "Index", "", new { @class = "btn btn-sm btn-outline-dark" })
                     <input type="submit" value="建立" class="btn btn-sm btn-outline-dark ml-5" />
                 </div>
             </div>
         </div>
-        @*}*@
-    </form>
+        }
+    @*</form>*@
 </div>
 
 @section Scripts {

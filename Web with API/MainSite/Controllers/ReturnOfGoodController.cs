@@ -62,7 +62,7 @@ namespace MainSite.Controllers
         // GET: ReturnOfGoods/Create
         public ActionResult Create()
         {
-            ViewBag.Account = new SelectList(db.Resident, "Account", "Account");
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name");
             return View();
         }
 

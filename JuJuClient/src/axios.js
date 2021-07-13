@@ -19,7 +19,7 @@ const axios = (baseURL) => {
     // const server = 'http://10.211.55.3'
 
     const instance = _axios.create({
-            baseURL: baseURL ||  server +':12346/api/', //JSON-Server端口位置
+            baseURL: baseURL ||  server +':12345/api/', //JSON-Server端口位置
             // timeout: 1000,
         });
 

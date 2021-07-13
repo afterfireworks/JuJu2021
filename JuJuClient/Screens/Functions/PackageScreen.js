@@ -15,7 +15,7 @@ function PackageScreen({ navigation }) {
     useEffect(() => {
         let repeat;
         async function axiosData() {
-            await axios.get(`Packages?userAccount=${Constants.userAccount}`)
+            await axios.get(`Api_Packages?userAccount=${Constants.userAccount}`)
                 .then(function (response) {
                     setDATA(response.data);
                     // console.log(response.data);
@@ -63,8 +63,8 @@ function PackageScreen({ navigation }) {
                  )}
               >
             <Text>領取狀態 : {item.Sign}</Text>     
-            <Text>領取日期 : {item.SignDate==null?null:item.SignDate.replace("T", ' ')}</Text>
-            <Text>領取人 : {item.Signer}</Text>
+            <Text>領取日期 : {item.SignDate==null?"未領取":item.SignDate.replace("T", ' ')}</Text>
+            <Text>領取人 : {item.Signer==null?"未領取":item.Signer}</Text>
             </Card>
           }
           /> 

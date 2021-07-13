@@ -14,7 +14,7 @@ function HomeScreen({ navigation }) {
   useEffect(() => {
     let repeat;
     async function axiosData() {
-      await axios.get('Announcements')
+      await axios.get('Api_Announcements')
         .then(function (response) {
           setDATA(response.data);
           // console.log(response.data);

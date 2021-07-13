@@ -34,8 +34,13 @@ body {
     padding: 30px;
 }
 
-.table th, .table th {
+.table th{
     width: 15%;
+}
+
+.table td {
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 
 .btns {

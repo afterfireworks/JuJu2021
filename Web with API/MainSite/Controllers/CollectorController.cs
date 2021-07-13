@@ -47,10 +47,11 @@ namespace MainSite.Controllers
                 join SelectByAccount in db.Resident on row.Account equals SelectByAccount.Account
                 join SelectByID in db.Resident on row.ID equals SelectByID.ID
                 //where
-                //orderby
+                orderby row.Account
 
                 select new VmCollector
                     {
+                        SN = row.SN,
                         Account = row.Account,
                         ID = row.ID,
                         AccountName = SelectByAccount.Name,
@@ -68,60 +69,48 @@ namespace MainSite.Controllers
         }
 
 
-        //    from 
-        //    Collector-account id;resident name   
 
-        //public ActionResult Index(int page = 1,int x = 1)
-        //{
-        //    IEnumerable<VmCollector> vmCollectors =
-        //    (
-        //    from collector as col
-        //    inner join resident as r on col.Account = r.Account
-        //    inner join resident as re on col.ID = re.ID
-        //    where 
-        //    orderby 
 
-        //    select new VmCollector
-        //    {
-        //        Account = Resident.Account,
-        //        ID = Resident.ID,
-        //        AccountName = Collector.Account,
-        //        IDName = Collector.ID,
-        //    }
-        //    );
-
-        //    return View(vmCollectors);
-        //}
-
-        [ActionName("Serch")]
+        [ActionName("Search")]
         public ActionResult Index(string option, string search, int page = 1)
         {
-            var data = db.Resident;
-            var collectorData = db.Collector.ToList();
+            IEnumerable<VmCollector> vmCollectors =
+            (
+                from row in db.Collector
+                join SelectByAccount in db.Resident on row.Account equals SelectByAccount.Account
+                join SelectByID in db.Resident on row.ID equals SelectByID.ID
+                //where
+                //orderby
+
+                select new VmCollector
+                {
+                    SN = row.SN,
+                    Account = row.Account,
+                    ID = row.ID,
+                    AccountName = SelectByAccount.Name,
+                    IDName = SelectByID.Name,
+                }
+            );
+
+            var data = vmCollectors.ToList();
 
             if (option == "id")
             {
-                var personAccount = db.Resident.Where(r => r.ID == search).FirstOrDefault().Account;
-                collectorData = db.Collector.Where(c => c.Account == personAccount || personAccount == null).ToList();
+                var personAccount = vmCollectors.Where(r => r.ID == search).FirstOrDefault().Account;
+                data = vmCollectors.Where(v => v.Account == personAccount || personAccount == null).ToList();
             }
             else if (option == "account")
             {
-                collectorData = db.Collector.Where(c => c.Account == search || search == null).ToList();
+                data = vmCollectors.Where(v => v.Account == search || search == null).ToList();
             }
             else
             {
-                //collectorData = collectorData;
-            }
-
-            foreach (var item in collectorData)
-            {
-                item.Resident.Account = data.Where(d => d.Account == item.Account).FirstOrDefault().Name;
-                item.Resident.ID = data.Where(d => d.ID == item.ID).FirstOrDefault().Name;
+                //data = data;
             }
 
             int pageSize = 8;
             int currentPage = page < 1 ? 1 : page;
-            var pagedCust = collectorData.ToPagedList(currentPage, pageSize);
+            var pagedCust = data.ToPagedList(currentPage, pageSize);
             return View("Index", pagedCust);
 
         }
@@ -154,17 +143,18 @@ namespace MainSite.Controllers
         }
 
         // GET: Collectors/Edit/5
-        public ActionResult Edit(string account, string id)
+        public ActionResult Edit(long? SN)
         {
-            if (account == null || id==null)
+            if (SN == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var collector = db.Collector.Where(c=>c.Account== account&&c.ID==id).FirstOrDefault();
+            var collector = db.Collector.Find(SN);
             if (collector == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.Account = new SelectList(db.Resident, "Account", "Name");
             ViewBag.ID = new SelectList(db.Resident, "ID", "Name");
             return View(collector);
@@ -177,13 +167,17 @@ namespace MainSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Account,ID")] Collector collector)
         {
+            ModelState.Remove("SN");
+
             if (ModelState.IsValid)
             {
                 db.Entry(collector).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
+
+            ViewBag.Account = new SelectList(db.Resident, "Account", "Name");
+            ViewBag.ID = new SelectList(db.Resident, "ID", "Name");
             return View(collector);
         }
 

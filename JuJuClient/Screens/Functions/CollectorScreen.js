@@ -15,7 +15,7 @@ function CollectorScreen({ navigation }) {
   useEffect(() => {
     let repeat;
     async function axiosData() {
-      await axios.get(`Collectors?userAccount=${Constants.userAccount}`)
+      await axios.get(`Api_Collectors?userAccount=${Constants.userAccount}`)
         .then(function (response) {
           setDATA(response.data);
           // console.log(response.data)

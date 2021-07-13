@@ -24,7 +24,7 @@ function UserScreen({ navigation }) {
     let repeat;
     let data;
     (async function axiosData() {
-      await axios.get(`Residents?userAccount=${Constants.userAccount}`)
+      await axios.get(`Api_Residents?userAccount=${Constants.userAccount}`)
       // await axios.get(`Residents?userAccount=noise`)
         .then(function (response) {
           // console.log(response.data);

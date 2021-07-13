@@ -91,7 +91,7 @@ function ComplaintScreen({ navigation }) {
     async function axiosData () {
     
       await axios
-            .post('Complaints',{
+            .post('Api_Complaints',{
             Account: 'noise',
             Date: date,
             Title: Title,

@@ -466,3 +466,13 @@ C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\Mai
 C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\LinqKit.EntityFramework.dll
 C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\LinqKit.xml
 C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\LinqKit.EntityFramework.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\System.Net.Http.Formatting.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\System.Web.Http.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\System.Web.Http.WebHost.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\System.Net.Http.Formatting.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\System.Web.Http.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\System.Web.Http.WebHost.xml
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\zh-Hant\System.Net.Http.Formatting.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\zh-Hant\System.Web.Http.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
+C:\Cloud drive\Megasync AfterFireWorks\AfterFireWorks\2021\JuJu\Web with API\MainSite\obj\Debug\MainSite.csproj.AssemblyReference.cache

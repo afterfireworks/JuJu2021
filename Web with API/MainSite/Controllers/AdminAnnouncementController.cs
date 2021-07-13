@@ -62,7 +62,7 @@ namespace MainSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SN,Date,ChairmanAccount,Category,Title,Description,Picture")] Announcement announcement, HttpPostedFileBase image)
         {
-            if (image == null)
+            if (image != null) 
             {
                 announcement.Picture = new byte[image.ContentLength];
                 image.InputStream.Read(announcement.Picture, 0, image.ContentLength);

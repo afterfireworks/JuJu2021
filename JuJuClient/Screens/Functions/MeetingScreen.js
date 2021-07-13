@@ -15,7 +15,7 @@ function MeetingScreen({ navigation }) {
   useEffect(() => {
     let repeat;
     async function axiosData() {
-        await axios.get('Meetings')
+        await axios.get('Api_Meetings')
             .then(function (response) {
               // console.log(response.data);
               setDATA(response.data);
